@@ -7,4 +7,6 @@ module com.example.projeto2_desktop {
 
     opens com.example.projeto2_desktop to javafx.fxml;
     exports com.example.projeto2_desktop;
+    exports Controller;
+    opens Controller to javafx.fxml;
 }
