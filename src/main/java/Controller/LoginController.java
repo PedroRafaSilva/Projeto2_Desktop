@@ -1,6 +1,7 @@
 package Controller;
 
 import Utilizador.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
@@ -27,24 +28,24 @@ public class LoginController {
     private TextField usernameText;
 
     @FXML
-    public void Login() {
-        checkLogin();
+    public void Login(ActionEvent event) {
+        checkLogin(event);
     }
 
-    public void checkLogin() {
+    public void checkLogin(ActionEvent event) {
         try {
-            Utilizador utilizador = new Utilizador();
             List<Utilizador> utilizadores = utilizadorRepository.getAllUtilizadors();
             boolean login = false;
             for (Utilizador user: utilizadores){
                 if (usernameText.getText().equals(user.getUsername()) && passwordText.getText().equals(user.getPassword())){
                     login = true;
+                    break;
                 } else {
                     login = false;
                 }
             }
-            if (login == true){
-                goToMenu();
+            if (login){
+                goToMenu(event);
             } else {
                 errorMessage.setText("Dados Incorretos!!");
             }
@@ -58,8 +59,8 @@ public class LoginController {
         Routes.handleGeneric(event, "Register", "RegisterView.fxml");
     }
 
-    public void goToMenu() throws IOException {
-
+    public void goToMenu(ActionEvent event) throws IOException {
+        Routes.handleGeneric(event, "Agendamento", "AgendamentoView.fxml");
     }
 
 

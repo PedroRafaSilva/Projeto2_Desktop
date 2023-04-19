@@ -157,7 +157,7 @@ public class RegisterController {
         codPostalRepository.saveCodPostal(codPostal);
         utilizadorRepository.saveUtilizador(utilizador);
         errorText.setStyle("-fx-text-fill: #07f20f");
-        errorText.setText("Registado com sucesso!!!");
+        errorText.setText("Utilizador registado com sucesso!!!");
         registarButton.setVisible(false);
     }
 
