@@ -1,197 +1,283 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="825.0" prefWidth="1525.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AgendamentoController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="825.0" prefWidth="1525.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AgendamentoController">
    <children>
-      <AnchorPane prefHeight="826.0" prefWidth="71.0" style="-fx-background-color: #1400FF;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <VBox alignment="TOP_CENTER" layoutX="-1.0" layoutY="-1.0" prefHeight="825.0" prefWidth="71.0" AnchorPane.topAnchor="-1.0">
+            <VBox style="-fx-background-color: #29296b;" HBox.hgrow="ALWAYS">
                <children>
-                  <ImageView fitHeight="200.0" fitWidth="71.0" onMouseClicked="#getMenu" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="200.0" fitWidth="71.0" onMouseClicked="#getMenu" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
                      <image>
                         <Image url="@../../../Images/Menu.png" />
                      </image>
-                     <VBox.margin>
-                        <Insets bottom="70.0" />
-                     </VBox.margin>
                   </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/User.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="37.0" fitWidth="64.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/DiveBoat.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="41.0" fitWidth="61.0" layoutX="10.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/Schedule.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="10.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/Invoice.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="10.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/Customer.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="10.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/Employee.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="10.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/Anchor.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="150.0" fitWidth="50.0" layoutX="10.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/OpenEndWrench.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="50.0" fitWidth="44.0" layoutX="10.0" layoutY="203.0" pickOnBounds="true">
-                     <image>
-                        <Image url="@../../../Images/MaintenanceDate.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets bottom="20.0" />
-                     </VBox.margin>
-                  </ImageView>
-                  <ImageView fitHeight="200.0" fitWidth="65.0" layoutX="10.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../../Images/LogoutRoundedLeft.png" />
-                     </image>
-                     <VBox.margin>
-                        <Insets top="100.0" />
-                     </VBox.margin>
-                  </ImageView>
+                  <HBox VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="754.0" prefWidth="46.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/User.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" top="30.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="37.0" fitWidth="64.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/DiveBoat.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="41.0" fitWidth="61.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/Schedule.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/Invoice.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/Customer.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/Employee.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/Anchor.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="150.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/OpenEndWrench.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="50.0" fitWidth="44.0" pickOnBounds="true">
+                                 <image>
+                                    <Image url="@../../../Images/MaintenanceDate.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="100.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <ImageView fitHeight="200.0" fitWidth="65.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../Images/LogoutRoundedLeft.png" />
+                                 </image>
+                                 <VBox.margin>
+                                    <Insets bottom="23.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="1.0" />
+                           </HBox.margin>
+                        </VBox>
+                        <VBox fx:id="pane1" prefWidth="0.0" visible="false" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Label prefHeight="31.0" prefWidth="206.0" text="Meu Perfil" textFill="WHITE">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="45.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="274.0" text="Gerir Embarcações" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="274.0" text="Gerir Agendamentos" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="274.0" text="Gerir Faturas" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="274.0" text="Gerir Clientes" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="274.0" text="Gerir Funcionários" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="274.0" text="Gerir Marinas" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="274.0" text="Gerir Oficinas" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="342.0" text="Gerir Pedidos de Manutenção" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="274.0" text="Logout" textFill="#f7f6f6">
+                                 <font>
+                                    <Font size="21.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" top="85.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-         </children>
-      </AnchorPane>
-      <AnchorPane fx:id="pane1" layoutX="71.0" prefHeight="826.0" prefWidth="284.0" style="-fx-background-color: #1400FF;">
-         <children>
-            <VBox prefHeight="696.0" prefWidth="339.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="130.0">
+            <VBox fx:id="pane2" alignment="TOP_CENTER" style="-fx-background-color: #FFFF;">
                <children>
-                  <Label prefHeight="50.0" prefWidth="274.0" text="Meu Perfil" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
+                  <Label text="Agendamentos">
                      <font>
-                        <Font size="21.0" />
-                     </font></Label>
-                  <Label layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="274.0" text="Gerir Embarcações" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
+                        <Font name="Calibri Bold" size="50.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="64.0" prefHeight="50.0" prefWidth="274.0" text="Gerir Agendamentos" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="119.0" prefHeight="50.0" prefWidth="274.0" text="Gerir Faturas" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="173.0" prefHeight="50.0" prefWidth="274.0" text="Gerir Clientes" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="228.0" prefHeight="50.0" prefWidth="274.0" text="Gerir Funcionários" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="282.0" prefHeight="50.0" prefWidth="274.0" text="Gerir Marinas" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="336.0" prefHeight="50.0" prefWidth="274.0" text="Gerir Oficinas" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="5.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="391.0" prefHeight="50.0" prefWidth="342.0" text="Gerir Pedidos de Manutenção" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="10.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="10.0" layoutY="445.0" prefHeight="50.0" prefWidth="274.0" text="Logout" textFill="#f7f6f6">
-                     <VBox.margin>
-                        <Insets bottom="5.0" top="110.0" />
-                     </VBox.margin>
-                     <font>
-                        <Font size="21.0" />
-                     </font>
-                  </Label>
+                  <HBox alignment="CENTER_LEFT" prefHeight="100.0">
+                     <children>
+                        <ComboBox fx:id="marinaBox" prefHeight="40.0" prefWidth="254.0" promptText="Marina" style="-fx-background-color: #FFFF; -fx-border-color: #29296b;">
+                           <HBox.margin>
+                              <Insets left="80.0" right="120.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <Button mnemonicParsing="false" onAction="#backOneMonth" stylesheets="@../../../CSS/Button.css" text="&lt;">
+                           <HBox.margin>
+                              <Insets left="70.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="Calibri Bold" size="12.0" />
+                           </font></Button>
+                        <Label fx:id="year" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="170.0" text="Label" />
+                        <Label fx:id="month" alignment="CENTER" layoutX="62.0" layoutY="10.0" prefHeight="100.0" prefWidth="170.0" text="Label" />
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#forwardOneMonth" stylesheets="@../../../CSS/Button.css" text="&gt;">
+                           <font>
+                              <Font name="Calibri Bold" size="12.0" />
+                           </font></Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Button.css" text="Novo Agendamento">
+                           <HBox.margin>
+                              <Insets left="120.0" right="80.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="51.0" prefWidth="1444.0">
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefWidth="100.0" text="Dom" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="100.0" right="50.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="100.0" text="Seg" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets left="50.0" right="100.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="38.0" layoutY="10.0" prefWidth="100.0" text="Ter" HBox.hgrow="ALWAYS">
+                           <HBox.margin>
+                              <Insets right="90.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="66.0" layoutY="10.0" prefWidth="100.0" text="Qua">
+                           <HBox.margin>
+                              <Insets right="90.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="94.0" layoutY="10.0" prefWidth="100.0" text="Qui">
+                           <HBox.margin>
+                              <Insets right="90.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="122.0" layoutY="10.0" prefWidth="100.0" text="Sex">
+                           <HBox.margin>
+                              <Insets right="90.0" />
+                           </HBox.margin>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="52.0" prefWidth="100.0" text="Sab">
+                           <HBox.margin>
+                              <Insets right="50.0" />
+                           </HBox.margin>
+                        </Label>
+                        <VBox prefHeight="200.0" prefWidth="100.0" />
+                     </children>
+                  </HBox>
+                  <FlowPane fx:id="calendar" alignment="CENTER" prefHeight="644.0" prefWidth="1444.0" VBox.vgrow="ALWAYS" />
                </children>
             </VBox>
          </children>
-      </AnchorPane>
+      </HBox>
    </children>
 </AnchorPane>
