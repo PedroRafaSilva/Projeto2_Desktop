@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="825.0" prefWidth="1525.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AgendamentoController">
+<AnchorPane prefHeight="825.0" prefWidth="1525.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PedidoManutencaoController">
    <children>
       <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -56,9 +56,9 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#manageAgendamentos" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../../../Images/OnSchedule.png" />
+                                    <Image url="@../../../Images/Schedule.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="5.0" right="5.0" />
@@ -122,9 +122,9 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#managePedidos" pickOnBounds="true">
+                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true">
                                  <image>
-                                    <Image url="@../../../Images/MaintenanceDate.png" />
+                                    <Image url="@../../../Images/OnMaintenanceDate.png" />
                                  </image>
                                  <VBox.margin>
                                     <Insets bottom="20.0" left="5.0" right="5.0" />
@@ -177,7 +177,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <Label prefHeight="50.0" prefWidth="300.0" text="Gerir Agendamentos" textFill="#f59905">
+                  <Label onMouseClicked="#manageAgendamentos" prefHeight="50.0" prefWidth="300.0" text="Gerir Agendamentos" textFill="WHITE">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -243,7 +243,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <Label onMouseClicked="#managePedidos" prefHeight="50.0" prefWidth="300.0" text="Gerir Pedidos de Manutenção" textFill="#f7f6f6">
+                  <Label prefHeight="50.0" prefWidth="300.0" text="Gerir Pedidos de Manutenção" textFill="#f59905">
                      <font>
                         <Font size="21.0" />
                      </font>
@@ -275,14 +275,14 @@
             </VBox>
             <VBox fx:id="pane2" alignment="TOP_CENTER" style="-fx-background-color: #FFFF;">
                <children>
-                  <Label text="Agendamentos">
+                  <Label text="Pedidos de Manutenção">
                      <font>
                         <Font name="Calibri Bold" size="50.0" />
                      </font>
                   </Label>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0">
                      <children>
-                        <ComboBox fx:id="marinaBox" prefHeight="40.0" prefWidth="254.0" promptText="Marina" style="-fx-background-color: #FFFF; -fx-border-color: #29296b; -fx-border-width: 2;">
+                        <ComboBox fx:id="embarcacaoBox" prefHeight="40.0" prefWidth="254.0" promptText="Embarcação" style="-fx-background-color: #FFFF; -fx-border-color: #29296b; -fx-border-width: 2;">
                            <HBox.margin>
                               <Insets left="80.0" right="120.0" />
                            </HBox.margin>
@@ -293,14 +293,16 @@
                            </HBox.margin>
                            <font>
                               <Font name="Calibri Bold" size="12.0" />
-                           </font></Button>
+                           </font>
+                        </Button>
                         <Label fx:id="year" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="150.0" text="Label" />
                         <Label fx:id="month" alignment="CENTER" layoutX="62.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0" text="Label" />
                         <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#forwardOneMonth" stylesheets="@../../../CSS/Button.css" text="&gt;">
                            <font>
                               <Font name="Calibri Bold" size="12.0" />
-                           </font></Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoAgend" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Button.css" text="Novo Agendamento">
+                           </font>
+                        </Button>
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoPedido" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Button.css" text="Novo Pedido">
                            <HBox.margin>
                               <Insets left="120.0" right="80.0" />
                            </HBox.margin>
@@ -350,7 +352,8 @@
                   <FlowPane fx:id="calendar" alignment="CENTER" prefHeight="644.0" prefWidth="1444.0" VBox.vgrow="ALWAYS">
                      <VBox.margin>
                         <Insets bottom="10.0" />
-                     </VBox.margin></FlowPane>
+                     </VBox.margin>
+                  </FlowPane>
                </children>
             </VBox>
          </children>

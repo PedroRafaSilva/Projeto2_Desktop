@@ -1,5 +1,7 @@
 package Controller;
 
+import Embarcacao.Embarcacao;
+import Embarcacao.EmbarcacaoService;
 import Marina.Marina;
 import Marina.MarinaService;
 import Route.Routes;
@@ -26,8 +28,7 @@ import java.net.URL;
 import java.time.ZonedDateTime;
 import java.util.ResourceBundle;
 
-
-public class AgendamentoController implements Initializable {
+public class PedidoManutencaoController implements Initializable {
 
     private ZonedDateTime dateFocus, today;
 
@@ -44,20 +45,20 @@ public class AgendamentoController implements Initializable {
     private Label month = new Label();
 
     @FXML
-    private ComboBox<String> marinaBox;
+    private ComboBox<String> embarcacaoBox;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateFocus = ZonedDateTime.now();
         today = ZonedDateTime.now();
         drawCalendar();
-        getAllMarinas();
+        getAllEmbarcacoes();
     }
 
-    public void getAllMarinas(){
-        MarinaService marinaService = new MarinaService();
-        for (Marina marina: marinaService.getAllMarinas()){
-            marinaBox.getItems().add(marina.getNome());
+    public void getAllEmbarcacoes(){
+        EmbarcacaoService embarcacaoService = new EmbarcacaoService();
+        for (Embarcacao embarcacao: embarcacaoService.getAllEmbarcacaos()){
+            embarcacaoBox.getItems().add(embarcacao.getNome());
         }
     }
 
@@ -142,17 +143,11 @@ public class AgendamentoController implements Initializable {
         }
         calendar.getChildren().clear();
         drawCalendar();
-
     }
 
     @FXML
-    void createNovoAgend(ActionEvent event) throws IOException {
-        Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("NovoAgendamentoView.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        stage.setScene(scene);
-        stage.initModality(Modality.APPLICATION_MODAL);
-        stage.show();
+    void createNovoPedido(ActionEvent event) throws IOException {
+
     }
 
     @FXML
@@ -192,8 +187,8 @@ public class AgendamentoController implements Initializable {
     }
 
     @FXML
-    void managePedidos(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "PedidoManutencao", "PedidoManutencaoView.fxml");
+    void manageAgendamentos(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "Agendamentos", "AgendamentoView.fxml");
     }
 
     @FXML

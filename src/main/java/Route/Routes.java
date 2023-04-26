@@ -24,6 +24,7 @@ public class Routes {
         stage.setScene(scene);
         stage.show();
         stage.setTitle(title);
+        stage.setMaximized(true);
     }
     public static void handleGeneric(ActionEvent event, String title, String sceneName) throws IOException {
         parent = FXMLLoader.load(Objects.requireNonNull(App.class.getResource(sceneName)));
@@ -32,5 +33,6 @@ public class Routes {
         stage.setScene(scene);
         stage.show();
         stage.setTitle(title);
+        stage.setMaximized(true);
     }
 }

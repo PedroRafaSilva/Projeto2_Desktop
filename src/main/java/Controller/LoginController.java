@@ -16,7 +16,7 @@ import java.util.List;
 
 public class LoginController {
 
-    private UtilizadorRepository utilizadorRepository = new UtilizadorRepository();
+    private UtilizadorService utilizadorService = new UtilizadorService();
 
     @FXML
     private Label errorMessage;
@@ -34,22 +34,14 @@ public class LoginController {
 
     public void checkLogin(ActionEvent event) {
         try {
-            List<Utilizador> utilizadores = utilizadorRepository.getAllUtilizadors();
             boolean login = false;
-            for (Utilizador user: utilizadores){
-                if (usernameText.getText().equals(user.getUsername()) && passwordText.getText().equals(user.getPassword())){
-                    login = true;
-                    break;
-                } else {
-                    login = false;
-                }
-            }
+            login = utilizadorService.isUserAlreadyRegistered(usernameText.getText(), passwordText.getText());
             if (login){
                 goToMenu(event);
             } else {
                 errorMessage.setText("Dados Incorretos!!");
             }
-        } catch (SQLException | IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
         }
     }
