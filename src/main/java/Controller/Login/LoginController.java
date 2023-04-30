@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Login;
 
 import Utilizador.*;
 import javafx.event.ActionEvent;
@@ -11,8 +11,7 @@ import Route.Routes;
 
 
 import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
+
 
 public class LoginController {
 

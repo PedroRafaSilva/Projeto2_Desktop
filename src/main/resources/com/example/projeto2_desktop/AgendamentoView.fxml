@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="825.0" prefWidth="1525.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.AgendamentoController">
+<AnchorPane prefHeight="825.0" prefWidth="1525.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Agendamento.AgendamentoController">
    <children>
       <HBox AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -282,12 +282,12 @@
                   </Label>
                   <HBox alignment="CENTER_LEFT" prefHeight="100.0">
                      <children>
-                        <ComboBox fx:id="marinaBox" prefHeight="40.0" prefWidth="254.0" promptText="Marina" style="-fx-background-color: #FFFF; -fx-border-color: #29296b; -fx-border-width: 2;">
+                        <ComboBox fx:id="marinaBox" prefHeight="40.0" prefWidth="254.0" promptText="Marina" stylesheets="@../../../CSS/Marine.css">
                            <HBox.margin>
                               <Insets left="80.0" right="120.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <Button mnemonicParsing="false" onAction="#backOneMonth" stylesheets="@../../../CSS/Button.css" text="&lt;">
+                        <Button mnemonicParsing="false" onAction="#backOneMonth" stylesheets="@../../../CSS/Marine.css" text="&lt;">
                            <HBox.margin>
                               <Insets left="70.0" />
                            </HBox.margin>
@@ -296,52 +296,52 @@
                            </font></Button>
                         <Label fx:id="year" alignment="CENTER" contentDisplay="CENTER" prefHeight="100.0" prefWidth="150.0" text="Label" />
                         <Label fx:id="month" alignment="CENTER" layoutX="62.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0" text="Label" />
-                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#forwardOneMonth" stylesheets="@../../../CSS/Button.css" text="&gt;">
+                        <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#forwardOneMonth" stylesheets="@../../../CSS/Marine.css" text="&gt;">
                            <font>
                               <Font name="Calibri Bold" size="12.0" />
                            </font></Button>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoAgend" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Button.css" text="Novo Agendamento">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoAgend" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Marine.css" text="Novo Agendamento">
                            <HBox.margin>
                               <Insets left="120.0" right="80.0" />
                            </HBox.margin>
                         </Button>
                      </children>
                   </HBox>
-                  <HBox alignment="BOTTOM_LEFT" prefHeight="26.0" prefWidth="1444.0">
+                  <HBox alignment="BOTTOM_CENTER" prefHeight="26.0" prefWidth="1444.0">
                      <children>
                         <Label alignment="TOP_LEFT" contentDisplay="CENTER" prefWidth="100.0" text="Dom" HBox.hgrow="ALWAYS">
                            <HBox.margin>
-                              <Insets left="170.0" />
+                              <Insets left="155.0" />
                            </HBox.margin>
                         </Label>
                         <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefWidth="100.0" text="Seg" HBox.hgrow="ALWAYS">
                            <HBox.margin>
-                              <Insets left="125.0" />
+                              <Insets left="115.0" />
                            </HBox.margin>
                         </Label>
                         <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="38.0" layoutY="10.0" prefWidth="100.0" text="Ter" HBox.hgrow="ALWAYS">
                            <HBox.margin>
-                              <Insets left="125.0" />
+                              <Insets left="115.0" />
                            </HBox.margin>
                         </Label>
                         <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="66.0" layoutY="10.0" prefWidth="100.0" text="Qua">
                            <HBox.margin>
-                              <Insets left="125.0" />
+                              <Insets left="115.0" />
                            </HBox.margin>
                         </Label>
                         <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="94.0" layoutY="10.0" prefWidth="100.0" text="Qui">
                            <HBox.margin>
-                              <Insets left="125.0" />
+                              <Insets left="115.0" />
                            </HBox.margin>
                         </Label>
                         <Label alignment="TOP_LEFT" contentDisplay="CENTER" layoutX="122.0" layoutY="10.0" prefWidth="100.0" text="Sex">
                            <HBox.margin>
-                              <Insets left="125.0" />
+                              <Insets left="115.0" />
                            </HBox.margin>
                         </Label>
                         <Label alignment="BOTTOM_LEFT" contentDisplay="CENTER" layoutX="10.0" layoutY="52.0" prefWidth="100.0" text="Sab">
                            <HBox.margin>
-                              <Insets left="125.0" right="100.0" />
+                              <Insets left="115.0" right="100.0" />
                            </HBox.margin>
                         </Label>
                         <VBox prefHeight="200.0" prefWidth="100.0" />

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="825.0" prefWidth="1525.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.LoginController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="825.0" prefWidth="1525.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Login.LoginController">
    <left>
       <AnchorPane prefHeight="400.0" prefWidth="370.0" BorderPane.alignment="CENTER">
          <children>
@@ -36,7 +36,7 @@
                <font>
                   <Font size="21.0" />
                </font></Label>
-            <Button fx:id="loginButton" layoutX="291.0" layoutY="492.0" mnemonicParsing="false" onAction="#Login" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Button.css" text="Login">
+            <Button fx:id="loginButton" layoutX="291.0" layoutY="492.0" mnemonicParsing="false" onAction="#Login" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Login">
                <font>
                   <Font size="21.0" />
                </font></Button>

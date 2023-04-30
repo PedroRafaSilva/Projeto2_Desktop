@@ -1,39 +1,33 @@
-package Controller;
+package Controller.Cliente;
 
-import CodPostal.CodPostal;
+import CodPostal.*;
 import Route.Routes;
-import Utilizador.Utilizador;
-import Utilizador.UtilizadorRepository;
-import CodPostal.CodPostalRepository;
+import Utilizador.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-public class RegisterController {
-
-    private UtilizadorRepository utilizadorRepository = new UtilizadorRepository();
-
-    private CodPostalRepository codPostalRepository = new CodPostalRepository();
+public class NovoClienteController {
 
     @FXML
     private TextField codPostText;
 
     @FXML
-    private TextField localidadeText;
-
-    @FXML
-    private PasswordField confirmText;
-
-    @FXML
     private TextField emailText;
+
+    @FXML
+    private Label errorText;
+
+    @FXML
+    private TextField localidadeText;
 
     @FXML
     private TextField nifText;
@@ -59,16 +53,16 @@ public class RegisterController {
     @FXML
     private TextField usernameText;
 
-    @FXML
-    private Label errorText;
+    private UtilizadorService utilizadorService = new UtilizadorService();
+
+    private CodPostalService codPostalService = new CodPostalService();
 
     @FXML
-    void Registar(ActionEvent event) {
-        checkRegistar();
+    void CriarCliente(ActionEvent event) throws IOException {
+        checkCriacao();
     }
 
-    public void checkRegistar(){
-        try {
+    public void checkCriacao(){
             if (validations()) {
                 CodPostal codPostal = new CodPostal();
                 Utilizador utilizador = new Utilizador();
@@ -87,22 +81,18 @@ public class RegisterController {
                 utilizador.setPassword(passwordText.getText());
                 utilizador.setIdTipoUtilizador(3);
 
-                registrationValid(codPostal, utilizador);
+                criationValid(codPostal, utilizador);
+                Stage stage = (Stage) codPostText.getScene().getWindow();
+                stage.close();
             }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
     }
 
-    public boolean validations() throws SQLException {
-        List<Utilizador> utilizadores = utilizadorRepository.getAllUtilizadors();
-        boolean userExist = false;
+    public boolean validations(){
         boolean hasLettters = false;
 
         if (nomeText.getText().isEmpty() || emailText.getText().isEmpty() || telefoneText.getText().isEmpty()
-        || nifText.getText().isEmpty() || ruaText.getText().isEmpty() || portaText.getText().isEmpty() ||
-        codPostText.getText().isEmpty() || usernameText.getText().isEmpty() || passwordText.getText().isEmpty()
-        || confirmText.getText().isEmpty()){
+                || nifText.getText().isEmpty() || ruaText.getText().isEmpty() || portaText.getText().isEmpty() ||
+                codPostText.getText().isEmpty() || usernameText.getText().isEmpty() || passwordText.getText().isEmpty()){
             errorText.setText("Um ou mais campos estão vazios!!!");
             return false;
         }
@@ -129,41 +119,21 @@ public class RegisterController {
         }
 
         if (!codPostText.getText().equals(codPostText.getText().substring(0, 4) + "-" + codPostText.getText().substring(5))){
-            errorText.setText("O codígo de Postal deve ser do tipo: 1234-123");
+            errorText.setText("O codígo de Postal deve ser do tipo: 1234-123.");
             return false;
         }
 
-        for (Utilizador user: utilizadores) {
-            if (usernameText.getText().equals(user.getUsername())) {
-                userExist = true;
-                break;
-            }
-        }
-
-        if (userExist){
-            errorText.setText("Esse username já está a ser utilizado!!");
+        if (utilizadorService.isUserAlreadyRegistered(usernameText.getText(), passwordText.getText())) {
+            errorText.setText("Escolha outro username ou palavra-passe.");
             return false;
         }
-
-        if (!passwordText.getText().equals(confirmText.getText())){
-            errorText.setText("As passwords não são iguais!");
-            return false;
-        }
-
         return true;
     }
 
-    public void registrationValid(CodPostal codPostal, Utilizador utilizador) throws SQLException {
-        codPostalRepository.saveCodPostal(codPostal);
-        utilizadorRepository.saveUtilizador(utilizador);
-        errorText.setStyle("-fx-text-fill: #07f20f");
-        errorText.setText("Utilizador registado com sucesso!!!");
-        registarButton.setVisible(false);
+    public void criationValid(CodPostal codPostal, Utilizador utilizador){
+        if (codPostalService.getCodPostalById(codPostal.getCpostal()) == null) {
+            codPostalService.createCodPostal(codPostal);
+        }
+        utilizadorService.createUtilizador(utilizador);
     }
-
-    @FXML
-    void GoBack(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Login", "LoginView.fxml");
-    }
-
 }

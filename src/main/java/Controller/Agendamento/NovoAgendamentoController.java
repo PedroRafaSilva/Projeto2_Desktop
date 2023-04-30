@@ -1,4 +1,4 @@
-package Controller;
+package Controller.Agendamento;
 
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;

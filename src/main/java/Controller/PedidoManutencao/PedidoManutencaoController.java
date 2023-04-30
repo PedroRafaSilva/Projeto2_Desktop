@@ -1,4 +1,4 @@
-package Controller;
+package Controller.PedidoManutencao;
 
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
@@ -137,8 +137,8 @@ public class PedidoManutencaoController implements Initializable {
         }
         else {
             pane1.setVisible(true);
-            pane1.setPrefWidth(349);
-            pane2.setPrefWidth(1095);
+            pane1.setPrefWidth(295);
+            pane2.setPrefWidth(1165);
             calendar.setPrefWidth(pane2.getPrefWidth());
         }
         calendar.getChildren().clear();
