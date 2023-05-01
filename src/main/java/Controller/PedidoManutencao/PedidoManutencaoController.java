@@ -173,7 +173,7 @@ public class PedidoManutencaoController implements Initializable {
 
     @FXML
     void manageFuncionarios(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Funcionarios", "FuncionariosView.fxml");
+        Routes.handleGeneric(event, "Funcionarios", "FuncionarioView.fxml");
     }
 
     @FXML
