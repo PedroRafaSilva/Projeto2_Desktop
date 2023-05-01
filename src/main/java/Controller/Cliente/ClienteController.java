@@ -124,7 +124,7 @@ public class ClienteController implements Initializable {
 
     @FXML
     void manageFuncionarios(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "", "FuncionariosView.fxml");
+        Routes.handleGeneric(event, "", "FuncionarioView.fxml");
     }
 
     @FXML

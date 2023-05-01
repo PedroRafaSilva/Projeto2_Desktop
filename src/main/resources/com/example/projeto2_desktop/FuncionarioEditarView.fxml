@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="370.0" style="-fx-background-color: #FFFF;" stylesheets="@../../../CSS/Marine.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Funcionario.FuncionarioEditarController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="-15.0" layoutY="-14.0" prefHeight="90.0" prefWidth="690.0" text="Editar Cliente">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="25.0" layoutY="-4.0" prefHeight="90.0" prefWidth="660.0" text="Editar Funcionário">
          <font>
             <Font name="Calibri Bold" size="50.0" />
          </font>

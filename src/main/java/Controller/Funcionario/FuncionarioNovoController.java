@@ -33,7 +33,7 @@ public class FuncionarioNovoController {
     private PasswordField passwordText;
 
     @FXML
-    private TextField portaText;
+    private TextField portaText; 
 
     @FXML
     private TextField ruaText;

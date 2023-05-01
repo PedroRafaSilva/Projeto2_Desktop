@@ -1,26 +1,45 @@
 package Controller.Marina;
 
-import CodPostal.CodPostal;
-import CodPostal.CodPostalService;
+import CodPostal.*;
 import Marina.Marina;
 import Marina.MarinaService;
-import Utilizador.Utilizador;
-import Utilizador.UtilizadorService;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class MarinaNovaController {
-
+public class MarinaEditarController {
     @FXML
     private TextField codPostText;
+
+    @FXML
+    private Label codPostal;
+
+    @FXML
+    private VBox editVbox;
+
+    @FXML
+    private Button editarButton;
 
     @FXML
     private Label errorText;
 
     @FXML
+    private Button guardarButton;
+
+    @FXML
+    private VBox infoVbox;
+
+    @FXML
+    private Label localidade;
+
+    @FXML
     private TextField localidadeText;
+
+    @FXML
+    private Label nome;
 
     @FXML
     private TextField nomeText;
@@ -29,26 +48,30 @@ public class MarinaNovaController {
 
     private CodPostalService codPostalService = new CodPostalService();
 
+    private int idMarina;
+
     @FXML
-    void CriarMarina() {
-        checkCriacao();
+    void guardar() {
+        checkEdicao();
     }
 
-    public void checkCriacao(){
-        if (validations()){
+    public void checkEdicao(){
+        if (validations()) {
             CodPostal codPostal = new CodPostal();
             Marina marina = new Marina();
 
             codPostal.setCpostal(codPostText.getText());
             codPostal.setLocalidade(localidadeText.getText());
 
+            marina.setIdMarina(idMarina);
             marina.setNome(nomeText.getText());
             marina.setCpostal(codPostText.getText());
 
-
             criationValid(codPostal, marina);
-            Stage stage = (Stage) codPostText.getScene().getWindow();
+
+            Stage stage = (Stage) guardarButton.getScene().getWindow();
             stage.close();
+
         }
     }
 
@@ -72,7 +95,26 @@ public class MarinaNovaController {
         if (codPostalService.getCodPostalById(codPostal.getCpostal()) == null) {
             codPostalService.createCodPostal(codPostal);
         }
-        marinaService.createMarina(marina);
+        marinaService.updateMarina(marina);
+
+    }
+
+    public void getData(Marina marina){
+        nome.setText(marina.getNome());
+        localidade.setText(codPostalService.getCodPostalById(marina.getCpostal()).getLocalidade());
+        codPostal.setText(marina.getCpostal());
+        nomeText.setText(nome.getText());
+        localidadeText.setText(localidade.getText());
+        codPostText.setText(codPostal.getText());
+        idMarina = marina.getIdMarina();
+    }
+
+    @FXML
+    void editar() {
+        infoVbox.setVisible(false);
+        editVbox.setVisible(true);
+        editarButton.setVisible(false);
+        guardarButton.setVisible(true);
     }
 
 }
