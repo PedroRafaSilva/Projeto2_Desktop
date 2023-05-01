@@ -1,21 +1,21 @@
 package Controller.Cliente;
 
 import Route.Routes;
-import Utilizador.*;
+import Utilizador.Utilizador;
+import Utilizador.UtilizadorService;
 import com.example.projeto2_desktop.App;
-import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Optional;
 
 public class ClienteItemController{
 
@@ -44,17 +44,29 @@ public class ClienteItemController{
 
 
     @FXML
-    void deleteCliente(MouseEvent event) throws IOException {
+    public void deleteCliente(MouseEvent event) throws IOException {
         UtilizadorService utilizadorService = new UtilizadorService();
-        utilizadorService.deleteUtilizador(Integer.parseInt(idText.getText()));
-        Routes.handleGeneric(event, "Clientes", "ClientesView.fxml");
+        ButtonType buttonType = new ButtonType("Eliminar");
+        ButtonType buttonType1 = new ButtonType(" Não Eliminar");
+        Alert alert = new Alert(Alert.AlertType.WARNING,
+                "Tem a certeza que pretende eleminar o Cliente?\nEsta ação é irreversivel!",
+                buttonType, buttonType1);
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == buttonType) {
+            System.out.println("LOL");
+            utilizadorService.deleteUtilizador(Integer.parseInt(idText.getText()));
+        }
+        Routes.handleGeneric(event, "", "ClientesView.fxml");
     }
 
+
+
+
     @FXML
-    void editCliente(MouseEvent event) throws IOException {
+    void editCliente() throws IOException {
         UtilizadorService utilizadorService = new UtilizadorService();
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("EditarClienteView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ClienteEditarView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.initOwner(emailText.getScene().getWindow());
         stage.setScene(scene);

@@ -2,9 +2,8 @@ package Controller.Cliente;
 
 import CodPostal.CodPostal;
 import CodPostal.CodPostalService;
-import Route.Routes;
-import Utilizador.*;
-import javafx.event.ActionEvent;
+import Utilizador.Utilizador;
+import Utilizador.UtilizadorService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -97,7 +96,7 @@ public class EditarClienteController {
     private int idCliente;
 
     @FXML
-    void guardar(ActionEvent event) {
+    void guardar() {
         checkEdicao();
     }
 
@@ -181,7 +180,6 @@ public class EditarClienteController {
             codPostalService.createCodPostal(codPostal);
         }
         utilizadorService.updateUtilizador(utilizador);
-        System.out.println("SIUUUU");
     }
 
     public void getData(Utilizador utilizador){
@@ -210,12 +208,11 @@ public class EditarClienteController {
     }
 
     @FXML
-    void editar(ActionEvent event) {
+    void editar() {
         infoVbox.setVisible(false);
         editVbox.setVisible(true);
         editarButton.setVisible(false);
         guardarButton.setVisible(true);
-
     }
 
 

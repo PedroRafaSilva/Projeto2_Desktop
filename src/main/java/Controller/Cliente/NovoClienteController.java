@@ -1,19 +1,14 @@
 package Controller.Cliente;
 
-import CodPostal.*;
-import Route.Routes;
-import Utilizador.*;
-import javafx.event.ActionEvent;
+import CodPostal.CodPostal;
+import CodPostal.CodPostalService;
+import Utilizador.Utilizador;
+import Utilizador.UtilizadorService;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.List;
 
 public class NovoClienteController {
 
@@ -42,9 +37,6 @@ public class NovoClienteController {
     private TextField portaText;
 
     @FXML
-    private Button registarButton;
-
-    @FXML
     private TextField ruaText;
 
     @FXML
@@ -58,7 +50,7 @@ public class NovoClienteController {
     private CodPostalService codPostalService = new CodPostalService();
 
     @FXML
-    void CriarCliente(ActionEvent event) throws IOException {
+    void CriarCliente() {
         checkCriacao();
     }
 

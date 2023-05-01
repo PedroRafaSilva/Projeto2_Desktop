@@ -148,7 +148,7 @@ public class AgendamentoController implements Initializable {
     @FXML
     void createNovoAgend(ActionEvent event) throws IOException {
         Stage stage = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("NovoAgendamentoView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgendamentoNovoView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
