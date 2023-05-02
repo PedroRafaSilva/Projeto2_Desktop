@@ -84,7 +84,7 @@ public class AgendamentoController implements Initializable {
 
                 Rectangle rectangle = new Rectangle();
                 rectangle.setFill(Color.WHITE);
-                rectangle.setStroke(Color.ORANGE);
+                rectangle.setStroke(Color.LIGHTBLUE);
                 rectangle.setArcWidth(30.0);
                 rectangle.setArcHeight(20.0);
                 rectangle.setStrokeWidth(strokeWidth);
@@ -157,38 +157,38 @@ public class AgendamentoController implements Initializable {
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Login", "LoginView.fxml");
+        Routes.handleGeneric(event, "", "LoginView.fxml");
     }
 
     @FXML
     void manageClientes(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Clientes", "ClientesView.fxml");
+        Routes.handleGeneric(event, "", "ClientesView.fxml");
     }
 
     @FXML
     void manageEmbarcacoes(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Embarcações", "EmbarcacoesView.fxml");
+        Routes.handleGeneric(event, "", "EmbarcacaoView.fxml");
     }
 
     @FXML
     void manageFaturas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Faturas", "FaturasView.fxml");
+        Routes.handleGeneric(event, "", "FaturasView.fxml");
 
     }
 
     @FXML
     void manageFuncionarios(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Funcionarios", "FuncionarioView.fxml");
+        Routes.handleGeneric(event, "", "FuncionarioView.fxml");
     }
 
     @FXML
     void manageMarinas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Marinas", "MarinaView.fxml");
+        Routes.handleGeneric(event, "", "MarinaView.fxml");
     }
 
     @FXML
     void manageOficinas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Oficinas", "OficinaView.fxml");
+        Routes.handleGeneric(event, "", "OficinaView.fxml");
     }
 
     @FXML
@@ -198,7 +198,7 @@ public class AgendamentoController implements Initializable {
 
     @FXML
     void userPerfil(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Meu Perfil", "PerfilView.fxml");
+        Routes.handleGeneric(event, "", "PerfilView.fxml");
     }
 
 }

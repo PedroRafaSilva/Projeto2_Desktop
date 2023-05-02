@@ -162,12 +162,12 @@ public class PedidoManutencaoController implements Initializable {
 
     @FXML
     void manageEmbarcacoes(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Embarcações", "EmbarcacoesView.fxml");
+        Routes.handleGeneric(event, "Embarcações", "EmbarcacaoView.fxml");
     }
 
     @FXML
     void manageFaturas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Faturas", "FaturasView.fxml");
+        Routes.handleGeneric(event, "Faturas", "FaturaView.fxml");
 
     }
 

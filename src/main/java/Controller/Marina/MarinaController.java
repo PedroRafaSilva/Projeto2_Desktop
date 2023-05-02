@@ -114,12 +114,12 @@ public class MarinaController implements Initializable {
 
     @FXML
     void manageEmbarcacoes(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "", "EmbarcacoesView.fxml");
+        Routes.handleGeneric(event, "", "EmbarcacaoView.fxml");
     }
 
     @FXML
     void manageFaturas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "", "FaturasView.fxml");
+        Routes.handleGeneric(event, "", "FaturaView.fxml");
 
     }
 

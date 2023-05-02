@@ -53,7 +53,6 @@ public class ClienteItemController{
                 buttonType, buttonType1);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == buttonType) {
-            System.out.println("LOL");
             utilizadorService.deleteUtilizador(Integer.parseInt(idText.getText()));
         }
         Routes.handleGeneric(event, "", "ClientesView.fxml");
