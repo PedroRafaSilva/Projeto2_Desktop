@@ -88,8 +88,8 @@ public class EmbarcacaoEditarController implements Initializable {
 
             embarcacao.setIdEmbarcacao(idEmbarcacao);
             embarcacao.setNome(nomeText.getText());
-            embarcacao.setIdUtilizador(utilizadorService.getClienteByNome(titularBox.getValue()).getIdUtilizador());
-            embarcacao.setIdMarina(marinaService.getMarinaByName(marinaBox.getValue()).getIdMarina());
+            embarcacao.setIdUtilizador(utilizadorService.getClienteByNome(titularBox.getValue()).getIdutilizador());
+            embarcacao.setIdMarina(marinaService.getMarinaByName(marinaBox.getValue()).getIdmarina());
             embarcacao.setComprimento(comprimentoService.getComprimentoByName(comprimentoBox.getValue()).getComprimento());
             embarcacaoService.updateEmbarcacao(embarcacao);
 
@@ -133,7 +133,7 @@ public class EmbarcacaoEditarController implements Initializable {
         nomeText.setText(nome.getText());
         titular.setText(embarcacao.getUtilizador().getNome());
         titularBox.setValue(titular.getText());
-        marina.setText(embarcacao.getMarina().getNome());
+        marina.setText(embarcacao.getmarina().getNome());
         marinaBox.setValue(marina.getText());
         comprimento.setText(embarcacao.getDescComprimento().getDescricao());
         comprimentoBox.setValue(comprimento.getText());

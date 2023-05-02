@@ -70,7 +70,7 @@ public class FuncionarioNovoController {
             utilizador.setcPostal(codPostText.getText());
             utilizador.setUsername(usernameText.getText());
             utilizador.setPassword(passwordText.getText());
-            utilizador.setIdTipoUtilizador(2);
+            utilizador.setIdtipoutilizador(2);
 
             criationValid(codPostal, utilizador);
             Stage stage = (Stage) codPostText.getScene().getWindow();

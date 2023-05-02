@@ -27,7 +27,7 @@ public class OficinaItemController {
 
     public void getData(Oficina oficina){
         nomeText.setText(oficina.getNome());
-        idText.setText(String.valueOf(oficina.getIdOficina()));
+        idText.setText(String.valueOf(oficina.getIdoficina()));
     }
 
 

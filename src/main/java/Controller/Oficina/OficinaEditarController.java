@@ -67,7 +67,7 @@ public class OficinaEditarController {
             codPostal.setCpostal(codPostText.getText());
             codPostal.setLocalidade(localidadeText.getText());
 
-            oficina.setIdOficina(idOficina);
+            oficina.setIdoficina(idOficina);
             oficina.setNome(nomeText.getText());
             oficina.setCpostal(codPostText.getText());
 
@@ -110,7 +110,7 @@ public class OficinaEditarController {
         nomeText.setText(nome.getText());
         localidadeText.setText(localidade.getText());
         codPostText.setText(codPostal.getText());
-        idOficina = oficina.getIdOficina();
+        idOficina = oficina.getIdoficina();
     }
 
     @FXML

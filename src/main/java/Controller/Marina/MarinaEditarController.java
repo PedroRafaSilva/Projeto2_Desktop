@@ -63,7 +63,7 @@ public class MarinaEditarController {
             codPostal.setCpostal(codPostText.getText());
             codPostal.setLocalidade(localidadeText.getText());
 
-            marina.setIdMarina(idMarina);
+            marina.setIdmarina(idMarina);
             marina.setNome(nomeText.getText());
             marina.setCpostal(codPostText.getText());
 
@@ -106,7 +106,7 @@ public class MarinaEditarController {
         nomeText.setText(nome.getText());
         localidadeText.setText(localidade.getText());
         codPostText.setText(codPostal.getText());
-        idMarina = marina.getIdMarina();
+        idMarina = marina.getIdmarina();
     }
 
     @FXML

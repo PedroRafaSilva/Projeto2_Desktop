@@ -106,7 +106,7 @@ public class FuncionarioEditarController {
             codPostal.setCpostal(codPostText.getText());
             codPostal.setLocalidade(localidadeText.getText());
 
-            utilizador.setIdUtilizador(idFuncionario);
+            utilizador.setIdtipoutilizador(idFuncionario);
             utilizador.setNome(nomeText.getText());
             utilizador.setEmail(emailText.getText());
             utilizador.setTelefone(telefoneText.getText());
@@ -116,7 +116,7 @@ public class FuncionarioEditarController {
             utilizador.setcPostal(codPostText.getText());
             utilizador.setUsername(usernameText.getText());
             utilizador.setPassword(passwordText.getText());
-            utilizador.setIdTipoUtilizador(2);
+            utilizador.setIdtipoutilizador(2);
 
             criationValid(codPostal, utilizador);
 
@@ -201,7 +201,7 @@ public class FuncionarioEditarController {
         codPostText.setText(codPostal.getText());
         usernameText.setText(username.getText());
         passwordText.setText(password.getText());
-        idFuncionario = utilizador.getIdUtilizador();
+        idFuncionario = utilizador.getIdutilizador();
     }
 
     @FXML

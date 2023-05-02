@@ -48,17 +48,15 @@ public class NovoAgendamentoController implements Initializable {
     }
 
     public void getAllClientes() {
-        for (Utilizador utilizador : utilizadorService.getAllUtilizadores()) {
-            if (utilizador.getIdTipoUtilizador() == 3) {
-                clienteBox.getItems().add(utilizador.getNome());
-            }
+        for (Utilizador utilizador : utilizadorService.getAllClientes()) {
+            clienteBox.getItems().add(utilizador.getNome());
         }
     }
     @FXML
     void getAllEmbarcacoes(MouseEvent event) {
         EmbarcacaoService embarcacaoService = new EmbarcacaoService();
         for (Embarcacao embarcacao: embarcacaoService.getAllEmbarcacaos()){
-            if (embarcacao.getIdUtilizador() == utilizadorService.getUtilizadorByNome(clienteBox.getValue()).getIdUtilizador()) {
+            if (embarcacao.getUtilizador().getNome().equals(clienteBox.getValue())) {
                 embarcacaoBox.getItems().remove(embarcacao.getNome());
                 embarcacaoBox.getItems().add(embarcacao.getNome());
             }

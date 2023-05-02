@@ -27,7 +27,7 @@ public class MarinaItemController {
 
     public void getData(Marina marina){
         nomeText.setText(marina.getNome());
-        idText.setText(String.valueOf(marina.getIdMarina()));
+        idText.setText(String.valueOf(marina.getIdmarina()));
     }
 
 

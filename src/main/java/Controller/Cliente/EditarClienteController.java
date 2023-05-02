@@ -108,7 +108,7 @@ public class EditarClienteController {
             codPostal.setCpostal(codPostText.getText());
             codPostal.setLocalidade(localidadeText.getText());
 
-            utilizador.setIdUtilizador(idCliente);
+            utilizador.setIdtipoutilizador(idCliente);
             utilizador.setNome(nomeText.getText());
             utilizador.setEmail(emailText.getText());
             utilizador.setTelefone(telefoneText.getText());
@@ -118,7 +118,7 @@ public class EditarClienteController {
             utilizador.setcPostal(codPostText.getText());
             utilizador.setUsername(usernameText.getText());
             utilizador.setPassword(passwordText.getText());
-            utilizador.setIdTipoUtilizador(3);
+            utilizador.setIdtipoutilizador(3);
 
             criationValid(codPostal, utilizador);
 
@@ -204,7 +204,7 @@ public class EditarClienteController {
         codPostText.setText(codPostal.getText());
         usernameText.setText(username.getText());
         passwordText.setText(password.getText());
-        idCliente = utilizador.getIdUtilizador();
+        idCliente = utilizador.getIdutilizador();
     }
 
     @FXML

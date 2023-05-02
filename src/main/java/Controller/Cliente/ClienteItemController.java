@@ -39,7 +39,7 @@ public class ClienteItemController{
         telefoneText.setText(utilizador.getTelefone());
         emailText.setText(utilizador.getEmail());
         nifText.setText(String.valueOf(utilizador.getNif()));
-        idText.setText(String.valueOf(utilizador.getIdUtilizador()));
+        idText.setText(String.valueOf(utilizador.getIdutilizador()));
     }
 
 

@@ -1,5 +1,7 @@
 package Controller.Agendamento;
 
+import Agendamento.Agendamento;
+import Agendamento.AgendamentoService;
 import Marina.Marina;
 import Marina.MarinaService;
 import Route.Routes;
@@ -24,6 +26,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 
@@ -62,8 +65,10 @@ public class AgendamentoController implements Initializable {
     }
 
     public void drawCalendar(){
+        AgendamentoService agendamentoService = new AgendamentoService();
         year.setText(String.valueOf(dateFocus.getYear()));
         month.setText(String.valueOf(dateFocus.getMonth()));
+
 
         double calendarWidth = calendar.getPrefWidth();
         double calendarHeight = calendar.getPrefHeight();
@@ -76,8 +81,8 @@ public class AgendamentoController implements Initializable {
         if(dateFocus.getYear() % 4 != 0 && monthMaxDate == 29){
             monthMaxDate = 28;
         }
-        int dateOffset = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1,0,0,0,0,dateFocus.getZone()).getDayOfWeek().getValue();
 
+        int dateOffset = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1,0,0,0,0,dateFocus.getZone()).getDayOfWeek().getValue();
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 StackPane stackPane = new StackPane();
@@ -102,6 +107,10 @@ public class AgendamentoController implements Initializable {
                         double textTranslationY = - (rectangleHeight / 2) * 0.75;
                         date.setTranslateY(textTranslationY);
                         stackPane.getChildren().add(date);
+
+                        if(!agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()).isEmpty()){
+                            createCalendarActivity(agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()), rectangleHeight, rectangleWidth, stackPane);
+                        }
                     }
                     if(today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate){
                         rectangle.setStroke(Color.BLUE);
@@ -110,6 +119,31 @@ public class AgendamentoController implements Initializable {
                 calendar.getChildren().add(stackPane);
             }
         }
+    }
+
+    private void createCalendarActivity(List<Agendamento> calendarActivities, double rectangleHeight, double rectangleWidth, StackPane stackPane) {
+        VBox calendarActivityBox = new VBox();
+
+        for (int k = 0; k < calendarActivities.size(); k++) {
+            if(k >= 2) {
+                Text moreActivities = new Text("...");
+                calendarActivityBox.getChildren().add(moreActivities);
+                break;
+            }
+
+            Text text = new Text("Titular: " + calendarActivities.get(k).getUtilizador().getNome() +
+                    "\nNome da Embarcação: " + calendarActivities.get(k).getEmbarcacao().getNome() +
+                    "\nHora de Inicio: " + calendarActivities.get(k).getHorainicio() +
+                    "\nHora Fim: " + calendarActivities.get(k).getHoraFim());
+            text.setStyle("-fx-font-size: 10");
+            calendarActivityBox.getChildren().add(text);
+        }
+        calendarActivityBox.setTranslateY((rectangleHeight / 2) * 0.20);
+        calendarActivityBox.setMaxWidth(20);
+        calendarActivityBox.setMaxHeight(10);
+        calendarActivityBox.setStyle("-fx-background-radius: 10; -fx-background-color: GHOSTWHITE");
+
+        stackPane.getChildren().add(calendarActivityBox);
     }
 
     @FXML

@@ -71,7 +71,7 @@ public class NovoClienteController {
                 utilizador.setcPostal(codPostText.getText());
                 utilizador.setUsername(usernameText.getText());
                 utilizador.setPassword(passwordText.getText());
-                utilizador.setIdTipoUtilizador(3);
+                utilizador.setIdtipoutilizador(3);
 
                 criationValid(codPostal, utilizador);
                 Stage stage = (Stage) codPostText.getScene().getWindow();

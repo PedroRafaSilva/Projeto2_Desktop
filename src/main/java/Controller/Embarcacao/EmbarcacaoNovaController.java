@@ -57,8 +57,8 @@ public class EmbarcacaoNovaController implements Initializable {
             Embarcacao embarcacao = new Embarcacao();
 
             embarcacao.setNome(nomeText.getText());
-            embarcacao.setIdUtilizador(utilizadorService.getClienteByNome(titularBox.getValue()).getIdUtilizador());
-            embarcacao.setIdMarina(marinaService.getMarinaByName(marinBox.getValue()).getIdMarina());
+            embarcacao.setIdUtilizador(utilizadorService.getClienteByNome(titularBox.getValue()).getIdutilizador());
+            embarcacao.setIdMarina(marinaService.getMarinaByName(marinBox.getValue()).getIdmarina());
             embarcacao.setComprimento(comprimentoService.getComprimentoByName(comprimentoBox.getValue()).getComprimento());
             embarcacaoService.createEmbarcacao(embarcacao);
 
