@@ -9,46 +9,33 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="100.0" minWidth="100.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Agendamento.NovoAgendamentoController">
+<AnchorPane minHeight="100.0" minWidth="100.0" prefHeight="476.0" prefWidth="800.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Agendamento.NovoAgendamentoController">
    <children>
       <Label layoutX="265.0" layoutY="14.0" text="Novo Agendamento">
          <font>
             <Font name="System Bold" size="31.0" />
          </font>
       </Label>
-      <ComboBox fx:id="clienteBox" layoutX="145.0" layoutY="81.0" prefHeight="40.0" prefWidth="254.0" promptText="Cliente:" style="-fx-background-color: #FFFF; -fx-border-color: #29296b;" />
-      <ComboBox fx:id="embarcacaoBox" layoutX="145.0" layoutY="141.0" onMouseClicked="#getAllEmbarcacoes" prefHeight="40.0" prefWidth="254.0" promptText="Embarcação:" style="-fx-background-color: #FFFF; -fx-border-color: #29296b;" />
-      <Label layoutX="146.0" layoutY="203.0" prefHeight="34.0" prefWidth="39.0" text="Data:">
+      <ComboBox fx:id="clienteBox" layoutX="145.0" layoutY="81.0" prefHeight="40.0" prefWidth="254.0" promptText="Cliente:" stylesheets="@../../../CSS/Marine.css" />
+      <ComboBox fx:id="embarcacaoBox" layoutX="145.0" layoutY="141.0" onMouseClicked="#getAllEmbarcacoes" prefHeight="40.0" prefWidth="254.0" promptText="Embarcação:" stylesheets="@../../../CSS/Marine.css" />
+      <Label layoutX="166.0" layoutY="203.0" prefHeight="34.0" text="Data:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="145.0" layoutY="251.0" prefHeight="32.0" prefWidth="36.0" text="Hora:">
+      <Label layoutX="115.0" layoutY="251.0" prefHeight="32.0" text="Hora de Inicio:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <Label layoutX="143.0" layoutY="301.0" prefHeight="33.0" prefWidth="54.0" text="Duração:">
+      <Label layoutX="123.0" layoutY="301.0" prefHeight="33.0" text="Hora de Fim:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField fx:id="horaText" layoutX="205.0" layoutY="251.0" prefHeight="35.0" prefWidth="444.0" promptText="Hora" />
-      <TextField fx:id="duracaoText" layoutX="205.0" layoutY="301.0" prefHeight="35.0" prefWidth="444.0" promptText="Duração" />
-      <DatePicker fx:id="dataAgen" layoutX="207.0" layoutY="207.0" prefHeight="26.0" prefWidth="254.0" />
-      <Label layoutX="143.0" layoutY="351.0" prefHeight="33.0" prefWidth="54.0" text="Extras:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <Button layoutX="205.0" layoutY="355.0" mnemonicParsing="false" stylesheets="@../../../CSS/Marine.css" text="Adicionar Extras" />
-      <Label layoutX="143.0" layoutY="401.0" prefHeight="33.0" prefWidth="54.0" text="Valor">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
-      <TextField fx:id="valorText" layoutX="205.0" layoutY="401.0" prefHeight="35.0" prefWidth="444.0" promptText="Valor" />
-      <Button fx:id="registarButton" layoutX="275.0" layoutY="495.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Guardar Alterações">
+      <TextField fx:id="horaFim" layoutX="205.0" layoutY="301.0" prefHeight="35.0" prefWidth="444.0" promptText="HH:MM:SS" stylesheets="@../../../CSS/Marine.css" />
+      <DatePicker fx:id="data" layoutX="207.0" layoutY="207.0" prefHeight="26.0" prefWidth="254.0" />
+      <Button layoutX="275.0" layoutY="375.0" mnemonicParsing="false" onAction="#criarAgendamento" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Criar Agendamento">
          <font>
             <Font size="21.0" />
          </font>
@@ -56,5 +43,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label fx:id="errorText" layoutX="207.0" layoutY="345.0" prefHeight="18.0" prefWidth="342.0" textFill="#e71010" />
+      <TextField fx:id="horaInicio" layoutX="205.0" layoutY="251.0" prefHeight="35.0" prefWidth="444.0" promptText="HH:MM:SS" stylesheets="@../../../CSS/Marine.css" />
    </children>
 </AnchorPane>

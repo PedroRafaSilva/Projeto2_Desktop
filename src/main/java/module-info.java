@@ -15,6 +15,8 @@ module com.example.projeto2_desktop {
     opens Controller.Cliente to javafx.fxml;
     exports Controller.Embarcacao;
     opens Controller.Embarcacao to javafx.fxml;
+    exports Controller.Extra;
+    opens Controller.Extra to javafx.fxml;
     exports Controller.Funcionario;
     opens Controller.Funcionario to javafx.fxml;
     exports Controller.Marina;
