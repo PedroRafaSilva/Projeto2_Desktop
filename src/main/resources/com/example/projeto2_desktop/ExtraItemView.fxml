@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="397.0" style="-fx-border-radius: 10; -fx-border-color: #29296b; -fx-background-radius: 10; -fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Extra.ExtraController">
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="397.0" style="-fx-border-radius: 10; -fx-border-color: #29296b; -fx-background-radius: 10; -fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Extra.ExtraItemController">
    <children>
       <Label fx:id="idText" layoutX="36.0" layoutY="26.0" text="SIUU" visible="false" />
       <Label fx:id="nomeText" prefHeight="18.0" prefWidth="86.0" text="SIUU">

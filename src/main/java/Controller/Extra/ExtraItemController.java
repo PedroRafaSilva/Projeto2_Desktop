@@ -1,5 +1,6 @@
 package Controller.Extra;
 
+import AgendamentoExtra.AgendamentoExtraService;
 import Extra.Extra;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -24,6 +25,8 @@ public class ExtraItemController{
 
     private int quantidade = 0;
     private float precoTotalExtra = 0;
+
+    private AgendamentoExtraService agendamentoExtraService = new AgendamentoExtraService();
 
     public void getExtra(Extra extra){
         idText.setText(String.valueOf(extra.getIdextra()));
@@ -52,4 +55,15 @@ public class ExtraItemController{
         }
     }
 
+    public float getPrecoTotalExtra() {
+        return precoTotalExtra;
+    }
+
+    public int getIdText() {
+        return Integer.parseInt(idText.getText());
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
 }

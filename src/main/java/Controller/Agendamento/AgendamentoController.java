@@ -26,6 +26,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -46,29 +47,18 @@ public class AgendamentoController implements Initializable {
     @FXML
     private Label month = new Label();
 
-    @FXML
-    private ComboBox<String> marinaBox;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateFocus = ZonedDateTime.now();
         today = ZonedDateTime.now();
         drawCalendar();
-        getAllMarinas();
     }
 
-    public void getAllMarinas(){
-        MarinaService marinaService = new MarinaService();
-        for (Marina marina: marinaService.getAllMarinas()){
-            marinaBox.getItems().add(marina.getNome());
-        }
-    }
 
     public void drawCalendar(){
         AgendamentoService agendamentoService = new AgendamentoService();
         year.setText(String.valueOf(dateFocus.getYear()));
         month.setText(String.valueOf(dateFocus.getMonth()));
-
 
         double calendarWidth = calendar.getPrefWidth();
         double calendarHeight = calendar.getPrefHeight();
@@ -108,7 +98,7 @@ public class AgendamentoController implements Initializable {
                         date.setTranslateY(textTranslationY);
                         stackPane.getChildren().add(date);
 
-                        if(!agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()).isEmpty()){
+                        if (!agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()).isEmpty()) {
                             createCalendarActivity(agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()), rectangleHeight, rectangleWidth, stackPane);
                         }
                     }
@@ -146,6 +136,8 @@ public class AgendamentoController implements Initializable {
         stackPane.getChildren().add(calendarActivityBox);
     }
 
+
+
     @FXML
     void backOneMonth(ActionEvent event) {
         dateFocus = dateFocus.minusMonths(1);
@@ -176,7 +168,6 @@ public class AgendamentoController implements Initializable {
         }
         calendar.getChildren().clear();
         drawCalendar();
-
     }
 
     @FXML
@@ -188,6 +179,7 @@ public class AgendamentoController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();
     }
+
 
     @FXML
     void logout(MouseEvent event) throws IOException {

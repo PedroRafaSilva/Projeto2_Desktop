@@ -33,7 +33,7 @@ public class EmbarcacaoItemController {
 
     public void getData(Embarcacao embarcacao){
         nomeText.setText(embarcacao.getNome());
-        titularText.setText(embarcacao.getUtilizador().getNome());
+        titularText.setText(embarcacao.getutilizador().getNome());
         comprimentoText.setText(embarcacao.getDescComprimento().getDescricao());
         idText.setText(String.valueOf(embarcacao.getIdEmbarcacao()));
     }

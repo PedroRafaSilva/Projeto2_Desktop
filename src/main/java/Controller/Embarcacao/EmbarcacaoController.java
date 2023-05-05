@@ -96,8 +96,8 @@ public class EmbarcacaoController implements Initializable {
         clienteBox.getItems().add("");
         EmbarcacaoService embarcacaoService = new EmbarcacaoService();
         for (Embarcacao embarcacao: embarcacaoService.getAllEmbarcacaos()){
-            if (!clienteBox.getItems().contains(embarcacao.getUtilizador().getNome())) {
-                clienteBox.getItems().add(embarcacao.getUtilizador().getNome());
+            if (!clienteBox.getItems().contains(embarcacao.getutilizador().getNome())) {
+                clienteBox.getItems().add(embarcacao.getutilizador().getNome());
             }
         }
     }
@@ -108,7 +108,7 @@ public class EmbarcacaoController implements Initializable {
         list.getChildren().clear();
         EmbarcacaoService embarcacaoService = new EmbarcacaoService();
         for (Embarcacao embarcacao: embarcacaoService.getAllEmbarcacaos()){
-            if (embarcacao.getUtilizador().getNome().contains(clienteBox.getValue())){
+            if (embarcacao.getutilizador().getNome().contains(clienteBox.getValue())){
                 if (comprimentoBox.getValue() == null) {
                     buildItems(embarcacao);
                 } else {
@@ -130,7 +130,7 @@ public class EmbarcacaoController implements Initializable {
                 if (clienteBox.getValue() == null) {
                     buildItems(embarcacao);
                 } else {
-                    if (embarcacao.getUtilizador().getNome().contains(clienteBox.getValue())){
+                    if (embarcacao.getutilizador().getNome().contains(clienteBox.getValue())){
                         buildItems(embarcacao);
                     }
                 }

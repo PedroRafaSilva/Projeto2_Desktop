@@ -2,10 +2,11 @@ package Controller.Agendamento;
 
 import Agendamento.Agendamento;
 import Agendamento.AgendamentoService;
+import Controller.Extra.ExtraController;
+import Controller.Extra.ExtraItemController;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
 import Fatura.FaturaService;
-import Route.Routes;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
 import com.example.projeto2_desktop.App;
@@ -14,10 +15,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
@@ -27,19 +30,15 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ResourceBundle;
 
-public class NovoAgendamentoController implements Initializable {
+public class AgendamentoVerificarController implements Initializable {
+    @FXML
+    private ComboBox<String> embarcacaoBox;
 
     @FXML
     private ComboBox<String> clienteBox;
 
     @FXML
-    private Button criarAgendamento;
-
-    @FXML
     private DatePicker data;
-
-    @FXML
-    private ComboBox<String> embarcacaoBox;
 
     @FXML
     private TextField horaFim;
@@ -48,21 +47,38 @@ public class NovoAgendamentoController implements Initializable {
     private TextField horaInicio;
 
     @FXML
+    private Label valorText;
+
+    @FXML
     private Label errorText;
 
     private UtilizadorService utilizadorService = new UtilizadorService();
     private EmbarcacaoService embarcacaoService = new EmbarcacaoService();
+    private AgendamentoService agendamentoService = new AgendamentoService();
+    private Agendamento agendamento = agendamentoService.findMostRecentAgendamento();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAllClientes();
+        getData();
     }
+
+    public void getData() {
+        clienteBox.setValue(utilizadorService.getUtilizadorById(agendamento.getIdutilizador()).getNome());
+        embarcacaoBox.setValue(embarcacaoService.getEmbarcacaoById(agendamento.getIdembarcacao()).getNome());
+        data.setValue(agendamento.getData().toLocalDate());
+        horaInicio.setText(String.valueOf(agendamento.getHorainicio()));
+        horaFim.setText(String.valueOf(agendamento.getHoraFim()));
+        valorText.setText(String.valueOf(agendamento.getValorextras()));
+    }
+
 
     public void getAllClientes() {
         for (Utilizador utilizador : utilizadorService.getAllClientes()) {
             clienteBox.getItems().add(utilizador.getNome());
         }
     }
+
     @FXML
     void getAllEmbarcacoes() {
         embarcacaoBox.getItems().clear();
@@ -73,7 +89,6 @@ public class NovoAgendamentoController implements Initializable {
                 embarcacaoBox.getItems().add(embarcacao.getNome());
             }
         }
-
     }
 
     @FXML
@@ -142,7 +157,6 @@ public class NovoAgendamentoController implements Initializable {
             return false;
         }
 
-
         if(Time.valueOf(horaInicio.getText()).toLocalTime().isAfter(Time.valueOf(horaFim.getText()).toLocalTime())){
             errorText.setText("A hora de inicio tem que ser antes que a hora de fim!");
             return false;
@@ -155,7 +169,19 @@ public class NovoAgendamentoController implements Initializable {
         AgendamentoService agendamentoService = new AgendamentoService();
         agendamentoService.createAgendamento(agendamento);
     }
+
+    @FXML
+    void addExtras() throws IOException {
+        Stage stage = (Stage) clienteBox.getScene().getWindow();
+        stage.close();
+        Stage stage1 = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ExtraView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage1.setScene(scene);
+        stage1.initModality(Modality.APPLICATION_MODAL);
+        stage1.show();
+    }
+
+
 }
-
-
 

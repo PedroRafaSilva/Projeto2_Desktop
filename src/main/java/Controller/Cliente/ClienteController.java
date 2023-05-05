@@ -113,7 +113,7 @@ public class ClienteController implements Initializable {
 
     @FXML
     void manageEmbarcacoes(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "", "EmbarcacoesView.fxml");
+        Routes.handleGeneric(event, "", "EmbarcacaoView.fxml");
     }
 
     @FXML

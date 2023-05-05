@@ -131,7 +131,7 @@ public class EmbarcacaoEditarController implements Initializable {
     public void getData(Embarcacao embarcacao){
         nome.setText(embarcacao.getNome());
         nomeText.setText(nome.getText());
-        titular.setText(embarcacao.getUtilizador().getNome());
+        titular.setText(embarcacao.getutilizador().getNome());
         titularBox.setValue(titular.getText());
         marina.setText(embarcacao.getmarina().getNome());
         marinaBox.setValue(marina.getText());
