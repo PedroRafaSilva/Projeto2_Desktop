@@ -85,7 +85,6 @@ public class EmbarcacaoEditarController implements Initializable {
             MarinaService marinaService = new MarinaService();
             ComprimentoService comprimentoService = new ComprimentoService();
             Embarcacao embarcacao = new Embarcacao();
-
             embarcacao.setIdEmbarcacao(idEmbarcacao);
             embarcacao.setNome(nomeText.getText());
             embarcacao.setIdUtilizador(utilizadorService.getClienteByNome(titularBox.getValue()).getIdutilizador());

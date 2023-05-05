@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="900.0" style="-fx-border-radius: 10; -fx-border-color: #29296b; -fx-background-radius: 100;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Agendamento.AgendamentoItemController">
+   <children>
+      <Label fx:id="idText" layoutX="36.0" layoutY="26.0" text="SIUU" visible="false" />
+      <Label fx:id="nomeText" prefWidth="200.0" text="SIUU">
+         <HBox.margin>
+            <Insets left="25.0" right="25.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="embarcacaoText" prefHeight="18.0" prefWidth="200.0" text="Label">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="HoraInicioText" prefWidth="100.0" text="Label">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+      </Label>
+      <Label fx:id="horaFimText" prefWidth="100.0" text="Label">
+         <HBox.margin>
+            <Insets right="100.0" />
+         </HBox.margin>
+      </Label>
+      <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#editCliente" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../../../Images/Info.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#deleteCliente" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../../../Images/Delete.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</HBox>
