@@ -5,26 +5,24 @@ import Agendamento.AgendamentoService;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
 import Fatura.FaturaService;
-import Route.Routes;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
 import com.example.projeto2_desktop.App;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import org.w3c.dom.events.MouseEvent;
 
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class NovoAgendamentoController implements Initializable {
@@ -33,29 +31,39 @@ public class NovoAgendamentoController implements Initializable {
     private ComboBox<String> clienteBox;
 
     @FXML
-    private Button criarAgendamento;
-
-    @FXML
     private DatePicker data;
 
     @FXML
     private ComboBox<String> embarcacaoBox;
 
     @FXML
-    private TextField horaFim;
+    private ComboBox<String> horaFimBox;
 
     @FXML
-    private TextField horaInicio;
+    private ComboBox<String> horaInicioBox;
 
     @FXML
     private Label errorText;
 
-    private UtilizadorService utilizadorService = new UtilizadorService();
-    private EmbarcacaoService embarcacaoService = new EmbarcacaoService();
+    private final UtilizadorService utilizadorService = new UtilizadorService();
+    private final EmbarcacaoService embarcacaoService = new EmbarcacaoService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAllClientes();
+        getHoras();
+    }
+
+
+    public void getHoras(){
+        horaInicioBox.getItems().addAll("07:00:00", "07:30:00", "08:00:00", "08:30:00", "09:30:00", "10:00:00",
+                "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00",
+                "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00",
+                "19:30:00", "20:00:00", "20:30:00");
+        horaFimBox.getItems().addAll("07:00:00", "07:30:00", "08:00:00", "08:30:00", "09:30:00", "10:00:00",
+                "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00",
+                "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00",
+                "19:30:00", "20:00:00", "20:30:00");
     }
 
     public void getAllClientes() {
@@ -77,7 +85,7 @@ public class NovoAgendamentoController implements Initializable {
     }
 
     @FXML
-    public void criarAgendamento(ActionEvent event) throws IOException {
+    public void criarAgendamento() throws IOException {
         if (validations()) {
             checkCriacao();
             openExtras();
@@ -93,8 +101,8 @@ public class NovoAgendamentoController implements Initializable {
         agendamento.setData(Date.valueOf(data.getValue()));
         agendamento.setValorextras(0.0F);
         agendamento.setIdembarcacao(embarcacaoService.getEmbarcacaobyName(embarcacaoBox.getValue()).getIdEmbarcacao());
-        agendamento.setHorainicio(Time.valueOf(horaInicio.getText()));
-        agendamento.setHorafim(Time.valueOf(horaFim.getText()));
+        agendamento.setHorainicio(Time.valueOf(horaInicioBox.getValue()));
+        agendamento.setHorafim(Time.valueOf(horaFimBox.getValue()));
         agendamento.setIdutilizador(idUtilizador);
         agendamento.setIdfatura(faturaService.getFaturaOfMothFromCliente(idUtilizador, data.getValue().getMonthValue()).getIdfatura());
 
@@ -115,7 +123,7 @@ public class NovoAgendamentoController implements Initializable {
     public boolean validations(){
         AgendamentoService agendamentoService = new AgendamentoService();
         if (clienteBox.getValue() == null || embarcacaoBox.getValue() == null || data.getValue() == null ||
-                horaFim.getText().isEmpty() || horaInicio.getText().isEmpty()){
+                horaInicioBox.getValue() == null || horaFimBox.getValue() == null){
             errorText.setText("Um ou mais campos estão vazios!!!");
             return false;
         }
@@ -124,27 +132,13 @@ public class NovoAgendamentoController implements Initializable {
             return false;
         }
 
+        if (Time.valueOf(horaInicioBox.getValue()).toLocalTime().isAfter(Time.valueOf(horaFimBox.getValue()).toLocalTime())){
+            errorText.setText("A hora de início deve ser antes da hora de fim!");
+            return false;
+        }
+
         if (agendamentoService.checkClienteAgenAt(utilizadorService.getClienteByNome(clienteBox.getValue()).getIdutilizador(), Date.valueOf(data.getValue()))){
             errorText.setText("Esse cliente já possui um agendmaento nesse dia!");
-            return false;
-        }
-        try {
-            LocalTime.parse(horaInicio.getText());
-        } catch (Exception e) {
-            errorText.setText("A hora tem que ser do tipo HH:mm:ss");
-            return false;
-        }
-
-        try {
-            LocalTime.parse(horaInicio.getText());
-        } catch (Exception e) {
-            errorText.setText("A hora tem que ser do tipo HH:mm:ss");
-            return false;
-        }
-
-
-        if(Time.valueOf(horaInicio.getText()).toLocalTime().isAfter(Time.valueOf(horaFim.getText()).toLocalTime())){
-            errorText.setText("A hora de inicio tem que ser antes que a hora de fim!");
             return false;
         }
 

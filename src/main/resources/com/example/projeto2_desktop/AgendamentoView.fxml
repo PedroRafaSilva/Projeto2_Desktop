@@ -55,7 +55,7 @@
                                     <Cursor fx:constant="HAND" />
                                  </cursor>
                               </ImageView>
-                              <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#manageAgendamentos" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../../Images/OnSchedule.png" />
                                  </image>
@@ -176,7 +176,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <Label prefHeight="50.0" prefWidth="300.0" text="Gerir Agendamentos" textFill="#f59905">
+                  <Label onMouseClicked="#manageAgendamentos" prefHeight="50.0" prefWidth="300.0" text="Gerir Agendamentos" textFill="#f59905">
                      <font>
                         <Font size="21.0" />
                      </font>

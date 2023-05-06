@@ -1,10 +1,10 @@
 package Controller.Extra;
 
-import AgendamentoExtra.AgendamentoExtraService;
+import AgendamentoExtra.AgendamentoExtra;
 import Extra.Extra;
+import Extra.ExtraService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.input.MouseEvent;
 
 public class ExtraItemController{
 
@@ -25,8 +25,7 @@ public class ExtraItemController{
 
     private int quantidade = 0;
     private float precoTotalExtra = 0;
-
-    private AgendamentoExtraService agendamentoExtraService = new AgendamentoExtraService();
+    private final ExtraService extraService = new ExtraService();
 
     public void getExtra(Extra extra){
         idText.setText(String.valueOf(extra.getIdextra()));
@@ -36,8 +35,19 @@ public class ExtraItemController{
         qtd.setText(String.valueOf(quantidade));
     }
 
+    public void getExtrasFromAgendamento(AgendamentoExtra agendamentoExtra){
+        Extra extra = extraService.getExtraById(agendamentoExtra.getIdextra());
+        idText.setText(String.valueOf(extra.getIdextra()));
+        nomeText.setText(extra.getDescricao());
+        preco.setText(String.valueOf(extra.getValoratualextra()));
+        precoTotal.setText(String.valueOf(agendamentoExtra.getValorextra()));
+        qtd.setText(String.valueOf(agendamentoExtra.getQtd()));
+        quantidade = agendamentoExtra.getQtd();
+        precoTotalExtra = agendamentoExtra.getValorextra();
+    }
+
     @FXML
-    void add(MouseEvent event) {
+    void add() {
         quantidade += 1;
         precoTotalExtra = Float.parseFloat(preco.getText()) * quantidade;
         qtd.setText(String.valueOf(quantidade));
@@ -46,7 +56,7 @@ public class ExtraItemController{
     }
 
     @FXML
-    void subtract(MouseEvent event) {
+    void subtract() {
         if (quantidade != 0) {
             quantidade -= 1;
             precoTotalExtra = Float.parseFloat(preco.getText()) * quantidade;

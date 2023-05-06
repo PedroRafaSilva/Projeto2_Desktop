@@ -9,22 +9,23 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="465.0" prefWidth="600.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Extra.ExtraController">
+<AnchorPane prefHeight="465.0" prefWidth="600.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Extra.ExtraAdicionarController">
    <children>
       <ScrollPane fx:id="scroll" layoutX="55.0" layoutY="87.0" prefHeight="291.0" prefWidth="500.0">
          <content>
             <VBox fx:id="vBox" alignment="TOP_CENTER" prefHeight="290.0" prefWidth="500.0" />
          </content>
       </ScrollPane>
-      <Label layoutX="212.0" layoutY="15.0" text="Adicionar Extras">
+      <Label layoutX="212.0" layoutY="15.0" text="Adicionar Extras ">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Button layoutX="206.0" layoutY="397.0" mnemonicParsing="false" onAction="#adicionarExtra" stylesheets="@../../../CSS/Marine.css" text=" Adicionar Extras">
+      <Button layoutX="206.0" layoutY="397.0" mnemonicParsing="false" onAction="#addExtra" stylesheets="@../../../CSS/Marine.css" text=" Adicionar Extras">
          <font>
             <Font size="21.0" />
-         </font></Button>
+         </font>
+      </Button>
       <HBox alignment="BOTTOM_LEFT" layoutX="55.0" layoutY="48.0" prefHeight="38.0" prefWidth="500.0">
          <children>
             <Label text="Nome">

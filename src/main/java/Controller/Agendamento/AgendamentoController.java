@@ -2,19 +2,20 @@ package Controller.Agendamento;
 
 import Agendamento.Agendamento;
 import Agendamento.AgendamentoService;
-import Marina.Marina;
-import Marina.MarinaService;
+import Controller.Extra.ExtraItemController;
+import Extra.Extra;
 import Route.Routes;
 import com.example.projeto2_desktop.App;
-import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Cursor;
 import javafx.scene.Scene;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -26,7 +27,6 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.ZonedDateTime;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -87,6 +87,7 @@ public class AgendamentoController implements Initializable {
                 rectangle.setWidth(rectangleWidth);
                 double rectangleHeight = (calendarHeight/6) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);
+                rectangle.setCursor(Cursor.HAND);
                 stackPane.getChildren().add(rectangle);
 
                 int calculatedDate = (j+1)+(7*i);
@@ -99,19 +100,27 @@ public class AgendamentoController implements Initializable {
                         stackPane.getChildren().add(date);
 
                         if (!agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()).isEmpty()) {
-                            createCalendarActivity(agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()), rectangleHeight, rectangleWidth, stackPane);
+                            createCalendarActivity(agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()), rectangleHeight, stackPane);
                         }
                     }
                     if(today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate){
                         rectangle.setStroke(Color.BLUE);
                     }
                 }
+
+                rectangle.setOnMouseClicked(event -> {
+                    try {
+                        openAgendamentoList();
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
                 calendar.getChildren().add(stackPane);
             }
         }
     }
 
-    private void createCalendarActivity(List<Agendamento> calendarActivities, double rectangleHeight, double rectangleWidth, StackPane stackPane) {
+    private void createCalendarActivity(List<Agendamento> calendarActivities, double rectangleHeight, StackPane stackPane) {
         VBox calendarActivityBox = new VBox();
 
         for (int k = 0; k < calendarActivities.size(); k++) {
@@ -136,24 +145,31 @@ public class AgendamentoController implements Initializable {
         stackPane.getChildren().add(calendarActivityBox);
     }
 
-
+    public void openAgendamentoList() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgendamentoDayView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.show();
+    }
 
     @FXML
-    void backOneMonth(ActionEvent event) {
+    void backOneMonth() {
         dateFocus = dateFocus.minusMonths(1);
         calendar.getChildren().clear();
         drawCalendar();
     }
 
     @FXML
-    void forwardOneMonth(ActionEvent event) {
+    void forwardOneMonth() {
         dateFocus = dateFocus.plusMonths(1);
         calendar.getChildren().clear();
         drawCalendar();
     }
 
     @FXML
-    void getMenu(MouseEvent event) {
+    void getMenu() {
         if (pane1.isVisible()){
             pane1.setVisible(false);
             pane1.setPrefWidth(0);
@@ -171,19 +187,26 @@ public class AgendamentoController implements Initializable {
     }
 
     @FXML
-    void createNovoAgend(ActionEvent event) throws IOException {
+    void createNovoAgend() throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgendamentoNovoView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
-        stage.show();
+        stage.showAndWait();
+        calendar.getChildren().clear();
+        drawCalendar();
     }
 
 
     @FXML
     void logout(MouseEvent event) throws IOException {
         Routes.handleGeneric(event, "", "LoginView.fxml");
+    }
+
+    @FXML
+    void manageAgendamentos(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "AgendamentoView.fxml");
     }
 
     @FXML
@@ -199,7 +222,6 @@ public class AgendamentoController implements Initializable {
     @FXML
     void manageFaturas(MouseEvent event) throws IOException {
         Routes.handleGeneric(event, "", "FaturasView.fxml");
-
     }
 
     @FXML

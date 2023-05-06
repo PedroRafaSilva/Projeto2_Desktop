@@ -108,7 +108,7 @@ public class EditarClienteController {
             codPostal.setCpostal(codPostText.getText());
             codPostal.setLocalidade(localidadeText.getText());
 
-            utilizador.setIdtipoutilizador(idCliente);
+            utilizador.setIdutilizador(idCliente);
             utilizador.setNome(nomeText.getText());
             utilizador.setEmail(emailText.getText());
             utilizador.setTelefone(telefoneText.getText());

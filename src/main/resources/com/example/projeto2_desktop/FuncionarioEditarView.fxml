@@ -101,7 +101,7 @@
             </Label>
          </children>
       </VBox>
-      <VBox fx:id="editVbox" layoutX="172.0" layoutY="85.0" prefHeight="492.0" prefWidth="444.0" visible="false">
+      <VBox fx:id="editVbox" layoutX="172.0" layoutY="85.0" prefHeight="492.0" prefWidth="444.0">
          <children>
             <TextField fx:id="nomeText" prefHeight="35.0" prefWidth="444.0" promptText="Nome" stylesheets="@../../../CSS/Marine.css">
                <VBox.margin>
@@ -123,7 +123,7 @@
                   <Insets bottom="10.0" top="7.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="localidadeText" prefHeight="35.0" prefWidth="444.0" promptText="Localidade" stylesheets="@../../../CSS/Marine.css">
+            <TextField fx:id="portaText" prefHeight="35.0" prefWidth="444.0" promptText="Porta" stylesheets="@../../../CSS/Marine.css">
                <VBox.margin>
                   <Insets bottom="10.0" top="7.0" />
                </VBox.margin>
@@ -133,7 +133,7 @@
                   <Insets bottom="10.0" top="7.0" />
                </VBox.margin>
             </TextField>
-            <TextField fx:id="portaText" prefHeight="35.0" prefWidth="444.0" promptText="Porta" stylesheets="@../../../CSS/Marine.css">
+            <TextField fx:id="localidadeText" prefHeight="35.0" prefWidth="444.0" promptText="Localidade" stylesheets="@../../../CSS/Marine.css">
                <VBox.margin>
                   <Insets bottom="10.0" top="7.0" />
                </VBox.margin>
@@ -172,7 +172,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <VBox fx:id="infoVbox" layoutX="182.0" layoutY="85.0" prefHeight="492.0" prefWidth="444.0">
+      <VBox fx:id="infoVbox" layoutX="182.0" layoutY="85.0" prefHeight="492.0" prefWidth="444.0" visible="false">
          <children>
             <Label fx:id="nome" prefHeight="35.0" prefWidth="600.0" text="Label">
                <VBox.margin>
