@@ -87,7 +87,6 @@ public class AgendamentoController implements Initializable {
                 rectangle.setWidth(rectangleWidth);
                 double rectangleHeight = (calendarHeight/6) - strokeWidth - spacingV;
                 rectangle.setHeight(rectangleHeight);
-                rectangle.setCursor(Cursor.HAND);
                 stackPane.getChildren().add(rectangle);
 
                 int calculatedDate = (j+1)+(7*i);
@@ -99,6 +98,14 @@ public class AgendamentoController implements Initializable {
                         date.setTranslateY(textTranslationY);
                         stackPane.getChildren().add(date);
 
+                        rectangle.setCursor(Cursor.HAND);
+                        rectangle.setOnMouseClicked(event -> {
+                            try {
+                                openAgendamentoList(currentDate, dateFocus.getMonthValue(), dateFocus.getYear());
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
                         if (!agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()).isEmpty()) {
                             createCalendarActivity(agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()), rectangleHeight, stackPane);
                         }
@@ -107,14 +114,6 @@ public class AgendamentoController implements Initializable {
                         rectangle.setStroke(Color.BLUE);
                     }
                 }
-
-                rectangle.setOnMouseClicked(event -> {
-                    try {
-                        openAgendamentoList();
-                    } catch (IOException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
                 calendar.getChildren().add(stackPane);
             }
         }
@@ -145,12 +144,14 @@ public class AgendamentoController implements Initializable {
         stackPane.getChildren().add(calendarActivityBox);
     }
 
-    public void openAgendamentoList() throws IOException {
+    public void openAgendamentoList(int day, int month, int year) throws IOException {
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgendamentoDayView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
+        AgendamentoDayController agendamentoDayController =  fxmlLoader.getController();
+        agendamentoDayController.getDate(day, month, year);
         stage.show();
     }
 

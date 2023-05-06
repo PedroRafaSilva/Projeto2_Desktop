@@ -6,6 +6,8 @@ import Controller.Extra.ExtraAdicionarController;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
 import Fatura.FaturaService;
+import ListaEstadoAgendamento.ListaEstadoAgendamento;
+import ListaEstadoAgendamento.ListaEstadoAgendamentoService;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
 import com.example.projeto2_desktop.App;
@@ -186,6 +188,12 @@ public class AgendamentoVerificarController implements Initializable {
 
     public void criationValid(Agendamento agendamento){
         AgendamentoService agendamentoService = new AgendamentoService();
+        ListaEstadoAgendamentoService listaEstadoAgendamentoService = new ListaEstadoAgendamentoService();
+        ListaEstadoAgendamento listaEstadoAgendamento = new ListaEstadoAgendamento();
+        listaEstadoAgendamento.setIdagendamento(agendamento.getIdagendamento());
+        listaEstadoAgendamento.setIdestado(2);
+        listaEstadoAgendamento.setData(Date.valueOf(LocalDate.now()));
+        listaEstadoAgendamentoService.createListaEstadoAgendamento(listaEstadoAgendamento);
         agendamentoService.updateAgendamento(agendamento);
     }
 

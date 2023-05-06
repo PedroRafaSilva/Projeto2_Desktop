@@ -5,6 +5,8 @@ import Agendamento.AgendamentoService;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
 import Fatura.FaturaService;
+import ListaEstadoAgendamento.ListaEstadoAgendamento;
+import ListaEstadoAgendamento.ListaEstadoAgendamentoService;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
 import com.example.projeto2_desktop.App;
