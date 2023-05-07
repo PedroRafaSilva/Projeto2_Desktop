@@ -11,11 +11,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane minHeight="100.0" minWidth="100.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Agendamento.AgendamentoVerificarController">
+<AnchorPane minHeight="100.0" minWidth="100.0" prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Agendamento.AgendamentoEditarController">
    <children>
       <HBox alignment="CENTER" prefHeight="62.0" prefWidth="800.0">
          <children>
-            <Label text="Resumo do Agendamento">
+            <Label text="Editar Agendamento">
                <font>
                   <Font name="System Bold" size="31.0" />
                </font>
@@ -161,31 +161,21 @@
             </Label>
          </children>
       </VBox>
-      <HBox alignment="CENTER" layoutX="3.0" layoutY="516.0" prefHeight="68.0" prefWidth="800.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#editarAgendamento" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Alterar Agendamento">
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <HBox.margin>
-                  <Insets right="20.0" />
-               </HBox.margin>
-            </Button>
-            <Button mnemonicParsing="false" onAction="#criarAgendamento" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Criar Agendamento">
-               <font>
-                  <Font size="21.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <HBox.margin>
-                  <Insets left="20.0" />
-               </HBox.margin>
-            </Button>
-         </children>
-      </HBox>
+      <Button fx:id="alterarButton" layoutX="270.0" layoutY="530.0" mnemonicParsing="false" onAction="#editarAgendamento" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Alterar Agendamento">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="guardarButton" layoutX="270.0" layoutY="530.0" mnemonicParsing="false" onAction="#criarAgendamento" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Guardar Alterações" visible="false">
+         <font>
+            <Font size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

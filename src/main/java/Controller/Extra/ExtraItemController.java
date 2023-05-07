@@ -1,10 +1,13 @@
 package Controller.Extra;
 
+import Agendamento.AgendamentoService;
 import AgendamentoExtra.AgendamentoExtra;
 import Extra.Extra;
 import Extra.ExtraService;
+import ListaEstadoAgendamento.ListaEstadoAgendamentoService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 
 public class ExtraItemController{
 
@@ -23,9 +26,17 @@ public class ExtraItemController{
     @FXML
     private Label qtd;
 
+    @FXML
+    private ImageView minusButton;
+
+    @FXML
+    private ImageView plusButton;
+
     private int quantidade = 0;
     private float precoTotalExtra = 0;
     private final ExtraService extraService = new ExtraService();
+
+    private ListaEstadoAgendamentoService listaEstadoAgendamentoService = new ListaEstadoAgendamentoService();
 
     public void getExtra(Extra extra){
         idText.setText(String.valueOf(extra.getIdextra()));
@@ -44,6 +55,14 @@ public class ExtraItemController{
         qtd.setText(String.valueOf(agendamentoExtra.getQtd()));
         quantidade = agendamentoExtra.getQtd();
         precoTotalExtra = agendamentoExtra.getValorextra();
+        noUpdate(agendamentoExtra);
+    }
+
+    public void noUpdate(AgendamentoExtra agendamentoExtra){
+        if(listaEstadoAgendamentoService.findEstadoByAgendamento(agendamentoExtra.getIdagendamento()).getIdestado() == 1) {
+            plusButton.setVisible(false);
+            minusButton.setVisible(false);
+        }
     }
 
     @FXML

@@ -2,11 +2,8 @@ package Controller.Agendamento;
 
 import Agendamento.Agendamento;
 import Agendamento.AgendamentoService;
-import Controller.Extra.ExtraItemController;
-import Extra.Extra;
 import Route.Routes;
 import com.example.projeto2_desktop.App;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -128,7 +124,6 @@ public class AgendamentoController implements Initializable {
                 calendarActivityBox.getChildren().add(moreActivities);
                 break;
             }
-
             Text text = new Text("Titular: " + calendarActivities.get(k).getUtilizador().getNome() +
                     "\nNome da Embarcação: " + calendarActivities.get(k).getEmbarcacao().getNome() +
                     "\nHora de Inicio: " + calendarActivities.get(k).getHorainicio() +
@@ -152,7 +147,9 @@ public class AgendamentoController implements Initializable {
         stage.initModality(Modality.APPLICATION_MODAL);
         AgendamentoDayController agendamentoDayController =  fxmlLoader.getController();
         agendamentoDayController.getDate(day, month, year);
-        stage.show();
+        stage.showAndWait();
+        calendar.getChildren().clear();
+        drawCalendar();
     }
 
     @FXML

@@ -58,9 +58,6 @@ public class ClienteItemController{
         Routes.handleGeneric(event, "", "ClientesView.fxml");
     }
 
-
-
-
     @FXML
     void editCliente() throws IOException {
         UtilizadorService utilizadorService = new UtilizadorService();

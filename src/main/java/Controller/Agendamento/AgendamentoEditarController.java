@@ -2,7 +2,7 @@ package Controller.Agendamento;
 
 import Agendamento.Agendamento;
 import Agendamento.AgendamentoService;
-import Controller.Extra.ExtraAdicionarController;
+import Controller.Extra.ExtraEditarController;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
 import Fatura.FaturaService;
@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -27,10 +28,10 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ResourceBundle;
 
-public class AgendamentoVerificarController implements Initializable {
+public class AgendamentoEditarController implements Initializable {
+
     @FXML
     private ComboBox<String> clienteBox;
 
@@ -42,6 +43,9 @@ public class AgendamentoVerificarController implements Initializable {
 
     @FXML
     private Label dataText;
+
+    @FXML
+    private VBox editVbox;
 
     @FXML
     private ComboBox<String> embarcacaoBox;
@@ -65,16 +69,19 @@ public class AgendamentoVerificarController implements Initializable {
     private Label horaInicioText;
 
     @FXML
-    private Label valorText;
+    private VBox infoVbox;
 
     @FXML
     private Label valor;
 
     @FXML
-    private VBox editVbox;
+    private Label valorText;
 
     @FXML
-    private VBox infoVbox;
+    private Button guardarButton;
+
+    @FXML
+    private Button alterarButton;
 
     private int idAgendamento = 0;
 
@@ -86,6 +93,13 @@ public class AgendamentoVerificarController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getAllClientes();
         getHoras();
+    }
+
+    public void noUpdate(){
+        ListaEstadoAgendamentoService listaEstadoAgendamentoService = new ListaEstadoAgendamentoService();
+        if (listaEstadoAgendamentoService.findEstadoByAgendamento(idAgendamento).getIdestado() == 1){
+            alterarButton.setVisible(false);
+        }
     }
 
     public void getData(Agendamento agendamento) {
@@ -102,8 +116,8 @@ public class AgendamentoVerificarController implements Initializable {
         horaFimText.setText(String.valueOf(horaFimBox.getValue()));
         valor.setText(valorText.getText());
         idAgendamento = agendamento.getIdagendamento();
+        noUpdate();
     }
-
 
     public void getAllClientes() {
         for (Utilizador utilizador : utilizadorService.getAllClientes()) {
@@ -127,6 +141,7 @@ public class AgendamentoVerificarController implements Initializable {
         embarcacaoBox.getItems().clear();
         EmbarcacaoService embarcacaoService = new EmbarcacaoService();
         for (Embarcacao embarcacao: embarcacaoService.getAllEmbarcacaos()){
+            System.out.println(clienteBox.getValue());
             if (embarcacao.getutilizador().getNome().equals(clienteBox.getValue())) {
                 embarcacaoBox.getItems().remove(embarcacao.getNome());
                 embarcacaoBox.getItems().add(embarcacao.getNome());
@@ -140,14 +155,12 @@ public class AgendamentoVerificarController implements Initializable {
             checkCriacao();
             Stage stage = (Stage) clienteBox.getScene().getWindow();
             stage.close();
-
         }
     }
 
     public void checkCriacao(){
         FaturaService faturaService = new FaturaService();
         int idUtilizador = utilizadorService.getClienteByNome(clienteBox.getValue()).getIdutilizador();
-
         Agendamento agendamento = new Agendamento();
         System.out.println(idAgendamento);
         agendamento.setIdagendamento(idAgendamento);
@@ -158,7 +171,6 @@ public class AgendamentoVerificarController implements Initializable {
         agendamento.setHorafim(Time.valueOf(horaFimBox.getValue()));
         agendamento.setIdutilizador(idUtilizador);
         agendamento.setIdfatura(faturaService.getFaturaOfMothFromCliente(idUtilizador, data.getValue().getMonthValue()).getIdfatura());
-
         criationValid(agendamento);
     }
 
@@ -189,12 +201,6 @@ public class AgendamentoVerificarController implements Initializable {
 
     public void criationValid(Agendamento agendamento){
         AgendamentoService agendamentoService = new AgendamentoService();
-        ListaEstadoAgendamentoService listaEstadoAgendamentoService = new ListaEstadoAgendamentoService();
-        ListaEstadoAgendamento listaEstadoAgendamento = new ListaEstadoAgendamento();
-        listaEstadoAgendamento.setIdagendamento(agendamento.getIdagendamento());
-        listaEstadoAgendamento.setIdestado(2);
-        listaEstadoAgendamento.setData(LocalDateTime.now());
-        listaEstadoAgendamentoService.createListaEstadoAgendamento(listaEstadoAgendamento);
         agendamentoService.updateAgendamento(agendamento);
     }
 
@@ -203,12 +209,12 @@ public class AgendamentoVerificarController implements Initializable {
         Stage stage = (Stage) clienteBox.getScene().getWindow();
         stage.close();
         Stage stage1 = new Stage();
-        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ExtraAdicionarView.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ExtraEditarView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage1.setScene(scene);
         stage1.initModality(Modality.APPLICATION_MODAL);
-        ExtraAdicionarController extraAdicionarController = fxmlLoader.getController();
-        extraAdicionarController.getExtraItens(idAgendamento);
+        ExtraEditarController extraEditarController = fxmlLoader.getController();
+        extraEditarController.getExtraItens(idAgendamento);
         stage1.show();
     }
 
@@ -216,8 +222,7 @@ public class AgendamentoVerificarController implements Initializable {
     void editarAgendamento() {
         infoVbox.setVisible(false);
         editVbox.setVisible(true);
+        alterarButton.setVisible(false);
+        guardarButton.setVisible(true);
     }
-
-
 }
-

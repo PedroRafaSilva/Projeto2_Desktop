@@ -51,7 +51,7 @@
             <Font size="14.0" />
          </font>
       </Label>
-      <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#editCliente" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editarButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#editAgendamento" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets right="25.0" />
          </HBox.margin>
@@ -62,12 +62,12 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#deleteCliente" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="cancelButton" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#deleteAgendamento" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets right="25.0" />
          </HBox.margin>
          <image>
-            <Image url="@../../../Images/Delete.png" />
+            <Image url="@../../../Images/Cancel.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
