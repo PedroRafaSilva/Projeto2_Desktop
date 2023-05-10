@@ -13,17 +13,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.sql.Date;
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
 public class AgendamentoItemController {
@@ -49,9 +46,6 @@ public class AgendamentoItemController {
     @FXML
     private ImageView cancelButton;
 
-    @FXML
-    private ImageView editarButton;
-
     private final AgendamentoService agendamentoService = new AgendamentoService();
 
     private final ListaEstadoAgendamentoService listaEstadoAgendamentoService = new ListaEstadoAgendamentoService();
@@ -73,10 +67,6 @@ public class AgendamentoItemController {
         ListaEstadoAgendamento listaEstadoAgendamento = new ListaEstadoAgendamento();
         listaEstadoAgendamento.setIdagendamento(agendamento.getIdagendamento());
         listaEstadoAgendamento.setData(LocalDateTime.now());
-        System.out.println(!estado.equals("Cancelado"));
-        System.out.println(!estado.equals("Concluída"));
-        System.out.println(agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now()));
-        System.out.println(agendamento.getHoraFim().toLocalTime().isAfter(LocalTime.now()));
         if (!estado.equals("Cancelado") && !estado.equals("Concluída") &&
                 agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now()) &&
                 agendamento.getHoraFim().toLocalTime().isAfter(LocalTime.now()) &&

@@ -1,12 +1,14 @@
 package Controller.PedidoManutencao;
 
-import Embarcacao.Embarcacao;
-import Embarcacao.EmbarcacaoService;
+import PedidoManutencao.PedidoManutencao;
+import PedidoManutencao.PedidoManutencaoService;
 import Route.Routes;
-import javafx.event.ActionEvent;
+import com.example.projeto2_desktop.App;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
+import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.FlowPane;
@@ -15,10 +17,13 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.ZonedDateTime;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class PedidoManutencaoController implements Initializable {
@@ -37,25 +42,16 @@ public class PedidoManutencaoController implements Initializable {
     @FXML
     private Label month = new Label();
 
-    @FXML
-    private ComboBox<String> embarcacaoBox;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         dateFocus = ZonedDateTime.now();
         today = ZonedDateTime.now();
         drawCalendar();
-        getAllEmbarcacoes();
     }
 
-    public void getAllEmbarcacoes(){
-        EmbarcacaoService embarcacaoService = new EmbarcacaoService();
-        for (Embarcacao embarcacao: embarcacaoService.getAllEmbarcacaos()){
-            embarcacaoBox.getItems().add(embarcacao.getNome());
-        }
-    }
 
     public void drawCalendar(){
+        PedidoManutencaoService pedidoManutencaoService = new PedidoManutencaoService();
         year.setText(String.valueOf(dateFocus.getYear()));
         month.setText(String.valueOf(dateFocus.getMonth()));
 
@@ -96,6 +92,18 @@ public class PedidoManutencaoController implements Initializable {
                         double textTranslationY = - (rectangleHeight / 2) * 0.75;
                         date.setTranslateY(textTranslationY);
                         stackPane.getChildren().add(date);
+
+                        rectangle.setCursor(Cursor.HAND);
+                        rectangle.setOnMouseClicked(event -> {
+                            try {
+                                openPedidosList(currentDate, dateFocus.getMonthValue(), dateFocus.getYear());
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
+                        });
+                        if (!pedidoManutencaoService.getPedidosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()).isEmpty()) {
+                            createCalendarActivity(pedidoManutencaoService.getPedidosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()), rectangleHeight, stackPane);
+                        }
                     }
                     if(today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate){
                         rectangle.setStroke(Color.BLUE);
@@ -106,22 +114,59 @@ public class PedidoManutencaoController implements Initializable {
         }
     }
 
+    private void createCalendarActivity(List<PedidoManutencao> calendarActivities, double rectangleHeight, StackPane stackPane) {
+        VBox calendarActivityBox = new VBox();
+
+        for (int k = 0; k < calendarActivities.size(); k++) {
+            if(k >= 1) {
+                Text moreActivities = new Text("+" + (calendarActivities.size() - 1));
+                calendarActivityBox.getChildren().add(moreActivities);
+                break;
+            }
+            Text text = new Text("Funcionario: " + calendarActivities.get(k).getUtilizador().getNome() +
+                    "\nNome da Embarcação: " + calendarActivities.get(k).getEmbarcacao().getNome() +
+                    "\nDescrição: " + calendarActivities.get(k).getDescricao() +
+                    "\nOficina: " + calendarActivities.get(k).getOficina().getNome());
+            text.setStyle("-fx-font-size: 10");
+            calendarActivityBox.getChildren().add(text);
+        }
+        calendarActivityBox.setTranslateY((rectangleHeight / 2) * 0.20);
+        calendarActivityBox.setMaxWidth(20);
+        calendarActivityBox.setMaxHeight(10);
+        calendarActivityBox.setStyle("-fx-background-radius: 10; -fx-background-color: GHOSTWHITE");
+
+        stackPane.getChildren().add(calendarActivityBox);
+    }
+
+    public void openPedidosList(int day, int month, int year) throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("PedidoDayView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        PedidoDayController pedidoDayController =  fxmlLoader.getController();
+        pedidoDayController.getDate(day, month, year);
+        stage.showAndWait();
+        calendar.getChildren().clear();
+        drawCalendar();
+    }
+
     @FXML
-    void backOneMonth(ActionEvent event) {
+    void backOneMonth() {
         dateFocus = dateFocus.minusMonths(1);
         calendar.getChildren().clear();
         drawCalendar();
     }
 
     @FXML
-    void forwardOneMonth(ActionEvent event) {
+    void forwardOneMonth() {
         dateFocus = dateFocus.plusMonths(1);
         calendar.getChildren().clear();
         drawCalendar();
     }
 
     @FXML
-    void getMenu(MouseEvent event) {
+    void getMenu() {
         if (pane1.isVisible()){
             pane1.setVisible(false);
             pane1.setPrefWidth(0);
@@ -139,8 +184,15 @@ public class PedidoManutencaoController implements Initializable {
     }
 
     @FXML
-    void createNovoPedido(ActionEvent event) throws IOException {
-
+    void createNovoPedido() throws IOException {
+        Stage stage = new Stage();
+        FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("PedidoNovoView.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.initModality(Modality.APPLICATION_MODAL);
+        stage.showAndWait();
+        calendar.getChildren().clear();
+        drawCalendar();
     }
 
     @FXML

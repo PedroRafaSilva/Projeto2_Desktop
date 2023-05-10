@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="900.0" style="-fx-border-radius: 10; -fx-border-color: #29296b; -fx-background-radius: 100;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.PedidoManutencao.PedidoItemController">
+   <children>
+      <Label fx:id="idText" layoutX="36.0" layoutY="26.0" text="SIUU" visible="false" />
+      <Label fx:id="nomeText" prefWidth="200.0" text="Funcionario">
+         <HBox.margin>
+            <Insets left="25.0" right="25.0" />
+         </HBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="embarcacaoText" prefHeight="20.0" prefWidth="173.0" text="Emabarcacao">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="oficinaText" prefHeight="20.0" prefWidth="134.0" text="Oficina">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="valorText" prefHeight="20.0" prefWidth="119.0" text="Valor">
+         <HBox.margin>
+            <Insets right="50.0" />
+         </HBox.margin>
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="editarButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#editPedido" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../../../Images/Info.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fx:id="cancelButton" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#deletePedido" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets right="10.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../../../Images/Cancel.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</HBox>
