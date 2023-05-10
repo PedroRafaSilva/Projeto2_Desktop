@@ -119,8 +119,8 @@ public class AgendamentoController implements Initializable {
         VBox calendarActivityBox = new VBox();
 
         for (int k = 0; k < calendarActivities.size(); k++) {
-            if(k > 1) {
-                Text moreActivities = new Text("...");
+            if(k >= 1) {
+                Text moreActivities = new Text("+" + (calendarActivities.size() - 1));
                 calendarActivityBox.getChildren().add(moreActivities);
                 break;
             }

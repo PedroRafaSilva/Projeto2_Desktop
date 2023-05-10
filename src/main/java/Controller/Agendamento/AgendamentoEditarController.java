@@ -28,6 +28,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class AgendamentoEditarController implements Initializable {
@@ -95,9 +96,9 @@ public class AgendamentoEditarController implements Initializable {
         getHoras();
     }
 
-    public void noUpdate(){
+    public void setAlterarButtonNotVisible(){
         ListaEstadoAgendamentoService listaEstadoAgendamentoService = new ListaEstadoAgendamentoService();
-        if (listaEstadoAgendamentoService.findEstadoByAgendamento(idAgendamento).getIdestado() == 1){
+        if (listaEstadoAgendamentoService.findEstadoByAgendamento(idAgendamento).getIdestado() != 2){
             alterarButton.setVisible(false);
         }
     }
@@ -116,7 +117,7 @@ public class AgendamentoEditarController implements Initializable {
         horaFimText.setText(String.valueOf(horaFimBox.getValue()));
         valor.setText(valorText.getText());
         idAgendamento = agendamento.getIdagendamento();
-        noUpdate();
+        setAlterarButtonNotVisible();
     }
 
     public void getAllClientes() {
@@ -188,6 +189,10 @@ public class AgendamentoEditarController implements Initializable {
 
         if (Time.valueOf(horaInicioBox.getValue()).toLocalTime().isAfter(Time.valueOf(horaFimBox.getValue()).toLocalTime())){
             errorText.setText("A hora de início deve ser antes da hora de fim!");
+            return false;
+        }
+        if (Time.valueOf(horaInicioBox.getValue()).toLocalTime().isBefore(LocalTime.now()) && data.getValue().equals(LocalDate.now())){
+            errorText.setText("A hora de início deve ser superior á hora atual.");
             return false;
         }
         if (!dataText.getText().equals(String.valueOf(data.getValue()))) {

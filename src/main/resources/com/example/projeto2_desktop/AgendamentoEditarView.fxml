@@ -27,7 +27,7 @@
          <children>
             <Label prefHeight="40.0" text="Cliente:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -35,7 +35,7 @@
             </Label>
             <Label prefHeight="40.0" text="Embarcação:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -43,7 +43,7 @@
             </Label>
             <Label prefHeight="40.0" text="Data:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -51,7 +51,7 @@
             </Label>
             <Label prefHeight="40.0" text="Hora de Inicio:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -59,7 +59,7 @@
             </Label>
             <Label prefHeight="40.0" text="Hora de Fim:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -67,7 +67,7 @@
             </Label>
             <Label prefHeight="40.0" text="Extras:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="20.0" />
@@ -75,7 +75,7 @@
             </Label>
             <Label prefHeight="40.0" text="Valor:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="System Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets />
@@ -114,11 +114,17 @@
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
             <Label fx:id="valorText" prefHeight="40.0" prefWidth="54.0" text="Label">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
          </children>
       </VBox>
@@ -128,36 +134,57 @@
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label fx:id="embarcacaoText" prefHeight="40.0" text="Embarcação:">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label fx:id="dataText" prefHeight="40.0" text="Data:">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label fx:id="horaInicioText" prefHeight="40.0" text="Hora de Inicio:">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label fx:id="horaFimText" prefHeight="40.0" text="Hora de Fim:">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Button mnemonicParsing="false" onAction="#addExtras" prefHeight="40.0" stylesheets="@../../../CSS/Marine.css" text="Ver/Adicionar Extras">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Button>
             <Label fx:id="valor" prefHeight="40.0" text="Extras:">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
          </children>
       </VBox>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
@@ -20,45 +19,26 @@
                   <Font name="Georgia Bold" size="96.0" />
                </font>
             </Label>
-            <TextField fx:id="usernameText" layoutX="223.0" layoutY="285.0" prefHeight="61.0" prefWidth="444.0" promptText="Username">
+            <TextField fx:id="usernameText" layoutX="223.0" layoutY="325.0" prefHeight="61.0" prefWidth="444.0" promptText="Username">
                <font>
                   <Font size="21.0" />
                </font></TextField>
-            <Label layoutX="109.0" layoutY="297.0" prefHeight="34.0" prefWidth="111.0" text="Username:">
+            <Label layoutX="109.0" layoutY="337.0" prefHeight="34.0" prefWidth="111.0" text="Username:">
                <font>
                   <Font size="21.0" />
                </font></Label>
-            <PasswordField fx:id="passwordText" layoutX="222.0" layoutY="384.0" prefHeight="61.0" prefWidth="444.0" promptText="Password">
+            <PasswordField fx:id="passwordText" layoutX="222.0" layoutY="424.0" prefHeight="61.0" prefWidth="444.0" promptText="Password">
                <font>
                   <Font size="21.0" />
                </font></PasswordField>
-            <Label layoutX="111.0" layoutY="395.0" prefHeight="38.0" prefWidth="102.0" text="Password:">
+            <Label layoutX="111.0" layoutY="435.0" prefHeight="38.0" prefWidth="102.0" text="Password:">
                <font>
                   <Font size="21.0" />
                </font></Label>
-            <Button fx:id="loginButton" layoutX="291.0" layoutY="492.0" mnemonicParsing="false" onAction="#Login" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Login">
+            <Button fx:id="loginButton" layoutX="291.0" layoutY="532.0" mnemonicParsing="false" onAction="#Login" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Login">
                <font>
                   <Font size="21.0" />
                </font></Button>
-            <Label layoutX="316.0" layoutY="594.0" text="Esqueceu da password? ">
-               <font>
-                  <Font size="21.0" />
-               </font></Label>
-            <Label fx:id="recoverPass" layoutX="328.0" layoutY="622.0" text="Recuperar Password" textFill="#1577df" underline="true">
-               <font>
-                  <Font size="21.0" />
-               </font></Label>
-            <Label layoutX="292.0" layoutY="693.0" prefHeight="31.0" prefWidth="216.0" text="Ainda não tem conta? ">
-               <font>
-                  <Font size="21.0" />
-               </font></Label>
-            <Label fx:id="register" layoutX="502.0" layoutY="693.0" onMouseClicked="#goRegister" text="Registar" textFill="#1973c7" underline="true">
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-               <font>
-                  <Font size="21.0" />
-               </font></Label>
             <Label fx:id="errorMessage" layoutX="111.0" layoutY="454.0" prefHeight="38.0" prefWidth="555.0" textFill="#ff0505">
                <font>
                   <Font size="21.0" />

@@ -25,6 +25,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ResourceBundle;
 
 public class NovoAgendamentoController implements Initializable {
@@ -58,11 +59,11 @@ public class NovoAgendamentoController implements Initializable {
 
 
     public void getHoras(){
-        horaInicioBox.getItems().addAll("07:00:00", "07:30:00", "08:00:00", "08:30:00", "09:30:00", "10:00:00",
+        horaInicioBox.getItems().addAll("07:00:00", "07:30:00", "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00",
                 "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00",
                 "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00",
                 "19:30:00", "20:00:00", "20:30:00");
-        horaFimBox.getItems().addAll("07:00:00", "07:30:00", "08:00:00", "08:30:00", "09:30:00", "10:00:00",
+        horaFimBox.getItems().addAll("07:00:00", "07:30:00", "08:00:00", "08:30:00", "09:00:00", "09:30:00", "10:00:00",
                 "10:30:00", "11:00:00", "11:30:00", "12:00:00", "12:30:00", "13:00:00", "13:30:00", "14:00:00", "14:30:00",
                 "15:00:00", "15:30:00", "16:00:00", "16:30:00", "17:00:00", "17:30:00", "18:00:00", "18:30:00", "19:00:00",
                 "19:30:00", "20:00:00", "20:30:00");
@@ -136,6 +137,11 @@ public class NovoAgendamentoController implements Initializable {
 
         if (Time.valueOf(horaInicioBox.getValue()).toLocalTime().isAfter(Time.valueOf(horaFimBox.getValue()).toLocalTime())){
             errorText.setText("A hora de início deve ser antes da hora de fim!");
+            return false;
+        }
+
+        if (Time.valueOf(horaInicioBox.getValue()).toLocalTime().isBefore(LocalTime.now()) && LocalTime.now().equals(String.valueOf(data.getValue()))){
+            errorText.setText("A hora de início deve ser superior á hora atual.");
             return false;
         }
 

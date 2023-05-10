@@ -297,11 +297,17 @@
                            <HBox.margin>
                               <Insets right="200.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </TextField>
                         <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoMarina" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Marine.css" text="Novo Marina">
                            <HBox.margin>
                               <Insets left="120.0" right="250.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </Button>
                      </children>
                   </HBox>
@@ -311,11 +317,17 @@
                            <HBox.margin>
                               <Insets left="100.0" right="175.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </Label>
                         <Label text="Ações">
                            <HBox.margin>
                               <Insets left="130.0" right="100.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </Label>
                      </children>
                   </HBox>

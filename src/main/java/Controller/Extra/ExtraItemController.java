@@ -59,7 +59,7 @@ public class ExtraItemController{
     }
 
     public void noUpdate(AgendamentoExtra agendamentoExtra){
-        if(listaEstadoAgendamentoService.findEstadoByAgendamento(agendamentoExtra.getIdagendamento()).getIdestado() == 1) {
+        if(listaEstadoAgendamentoService.findEstadoByAgendamento(agendamentoExtra.getIdagendamento()).getIdestado() != 2) {
             plusButton.setVisible(false);
             minusButton.setVisible(false);
         }

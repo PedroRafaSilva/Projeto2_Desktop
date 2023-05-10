@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
 
 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="450.0" style="-fx-border-radius: 10; -fx-border-color: #29296b; -fx-background-radius: 100;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Oficina.OficinaItemController">
    <children>
@@ -14,6 +15,9 @@
          <HBox.margin>
             <Insets left="25.0" right="100.0" />
          </HBox.margin>
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
       </Label>
       <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#editOficina" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>

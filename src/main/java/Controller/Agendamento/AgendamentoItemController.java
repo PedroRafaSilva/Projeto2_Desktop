@@ -73,16 +73,22 @@ public class AgendamentoItemController {
         ListaEstadoAgendamento listaEstadoAgendamento = new ListaEstadoAgendamento();
         listaEstadoAgendamento.setIdagendamento(agendamento.getIdagendamento());
         listaEstadoAgendamento.setData(LocalDateTime.now());
+        System.out.println(!estado.equals("Cancelado"));
+        System.out.println(!estado.equals("Concluída"));
+        System.out.println(agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now()));
+        System.out.println(agendamento.getHoraFim().toLocalTime().isAfter(LocalTime.now()));
         if (!estado.equals("Cancelado") && !estado.equals("Concluída") &&
                 agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now()) &&
                 agendamento.getHoraFim().toLocalTime().isAfter(LocalTime.now()) &&
                 agendamento.getData().toLocalDate().isEqual(LocalDate.now())){
             listaEstadoAgendamento.setIdestado(5);
+            listaEstadoAgendamentoService.updateListaEstadoAgendamento(listaEstadoAgendamento);
         }
         if (!estado.equals("Cancelado") && !estado.equals("Concluída") &&
-                agendamento.getHoraFim().toLocalTime().isBefore(LocalTime.now()) &&
+                agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now()) &&
                 agendamento.getData().toLocalDate().isEqual(LocalDate.now())){
             listaEstadoAgendamento.setIdestado(4);
+            listaEstadoAgendamentoService.updateListaEstadoAgendamento(listaEstadoAgendamento);
         }
     }
 
@@ -97,14 +103,14 @@ public class AgendamentoItemController {
         if (estado.equals("Concluido")) {
             estadoText.setStyle("-fx-text-fill: #07fa07;");
         }
-        if (estado.equals("Em Curso")) {
-            estadoText.setStyle("-fx-text-fill: #c6f00a;");
+        if (estado.equals("Em curso")) {
+            estadoText.setStyle("-fx-text-fill: #03c6fc;");
         }
     }
 
     public void visibleButtons(String estado, Agendamento agendamento){
         cancelButton.setVisible(true);
-        if (estado.equals("Cancelado") || estado.equals("Concluída")
+        if (estado.equals("Cancelado") || estado.equals("Concluido")
         || agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now().plusHours(1)) &&
         agendamento.getData().toLocalDate().isEqual(LocalDate.now())){
             cancelButton.setVisible(false);

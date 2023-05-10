@@ -15,10 +15,13 @@
             <Font name="Georgia Bold" size="96.0" />
          </font>
       </Label>
-      <TextField fx:id="nomeText" layoutX="164.0" layoutY="105.0" prefHeight="35.0" prefWidth="444.0" promptText="Nome" stylesheets="@../../../CSS/Marine.css" />
+      <TextField fx:id="nomeText" layoutX="164.0" layoutY="105.0" prefHeight="35.0" prefWidth="444.0" promptText="Nome" stylesheets="@../../../CSS/Marine.css">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
       <Label layoutX="115.0" layoutY="107.0" prefHeight="34.0" prefWidth="39.0" text="Nome:">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="14.0" />
          </font>
       </Label>
       <Button layoutX="222.0" layoutY="278.0" mnemonicParsing="false" onAction="#CriarMarina" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Criar Marina">
@@ -31,17 +34,23 @@
       </Button>
       <Label layoutX="65.0" layoutY="205.0" prefHeight="37.0" prefWidth="86.0" text="Código Postal:">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="14.0" />
          </font>
       </Label>
       <Label fx:id="errorText" layoutX="165.0" layoutY="244.0" prefHeight="18.0" prefWidth="446.0" textFill="#ff0000" />
-      <TextField fx:id="codPostText" layoutX="164.0" layoutY="205.0" prefHeight="35.0" prefWidth="444.0" promptText="Código Postal" stylesheets="@../../../CSS/Marine.css" />
+      <TextField fx:id="codPostText" layoutX="164.0" layoutY="205.0" prefHeight="35.0" prefWidth="444.0" promptText="Código Postal" stylesheets="@../../../CSS/Marine.css">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
       <Label layoutX="83.0" layoutY="155.0" prefHeight="34.0" prefWidth="68.0" text="Localidade:">
          <font>
-            <Font name="System Bold" size="12.0" />
+            <Font name="Calibri Bold" size="14.0" />
          </font>
       </Label>
-      <TextField fx:id="localidadeText" layoutX="164.0" layoutY="155.0" prefHeight="35.0" prefWidth="444.0" promptText="Localidade" stylesheets="@../../../CSS/Marine.css" />
+      <TextField fx:id="localidadeText" layoutX="164.0" layoutY="155.0" prefHeight="35.0" prefWidth="444.0" promptText="Localidade" stylesheets="@../../../CSS/Marine.css">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="153.0" layoutY="10.0" prefHeight="90.0" prefWidth="381.0" text="Nova Marina" AnchorPane.leftAnchor="153.0" AnchorPane.rightAnchor="150.0">
          <font>
             <Font name="Calibri Bold" size="50.0" />

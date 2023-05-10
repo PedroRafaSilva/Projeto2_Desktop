@@ -298,6 +298,9 @@
                            <HBox.margin>
                               <Insets right="50.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </TextField>
                         <ComboBox fx:id="clienteBox" onAction="#getClienteBoxSearch" prefHeight="40.0" prefWidth="255.0" promptText="Cliente" stylesheets="@../../../CSS/Marine.css" />
                         <ComboBox fx:id="comprimentoBox" onAction="#getComprimentoBoxSearch" prefHeight="40.0" prefWidth="255.0" promptText="Comprimento" stylesheets="@../../../CSS/Marine.css">
@@ -309,6 +312,9 @@
                            <HBox.margin>
                               <Insets left="50.0" right="100.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </Button>
                      </children>
                   </HBox>
@@ -318,21 +324,33 @@
                            <HBox.margin>
                               <Insets left="50.0" right="175.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </Label>
                         <Label text="Titular">
                            <HBox.margin>
                               <Insets left="10.0" right="100.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </Label>
                         <Label text="Comprimento">
                            <HBox.margin>
                               <Insets left="100.0" right="100.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </Label>
                         <Label text="Ações">
                            <HBox.margin>
                               <Insets left="100.0" right="100.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Calibri" size="14.0" />
+                           </font>
                         </Label>
                      </children>
                   </HBox>

@@ -21,7 +21,7 @@
          <children>
             <Label prefHeight="35.0" prefWidth="39.0" text="Nome:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" />
@@ -29,7 +29,7 @@
             </Label>
             <Label prefHeight="35.0" text="Titular:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" top="7.0" />
@@ -37,7 +37,7 @@
             </Label>
             <Label prefHeight="35.0" text="Marina:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" top="7.0" />
@@ -45,7 +45,7 @@
             </Label>
             <Label prefHeight="35.0" text="Comprimento:">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font name="Calibri Bold" size="14.0" />
                </font>
                <VBox.margin>
                   <Insets bottom="10.0" top="7.0" />
@@ -59,6 +59,9 @@
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </TextField>
             <ComboBox fx:id="titularBox" prefHeight="35.0" prefWidth="240.0">
                <VBox.margin>
@@ -100,21 +103,33 @@
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label fx:id="titular" prefHeight="35.0" prefWidth="600.0" text="Label">
                <VBox.margin>
                   <Insets bottom="10.0" top="7.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label fx:id="marina" prefHeight="35.0" prefWidth="600.0" text="Label">
                <VBox.margin>
                   <Insets bottom="10.0" top="7.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
             <Label fx:id="comprimento" prefHeight="35.0" prefWidth="600.0" text="Label">
                <VBox.margin>
                   <Insets bottom="10.0" top="7.0" />
                </VBox.margin>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </Label>
          </children>
       </VBox>
