@@ -1,7 +1,7 @@
 package Controller.Marina;
 
-import Controller.Funcionario.FuncionarioEditarController;
-import Marina.*;
+import Marina.Marina;
+import Marina.MarinaService;
 import Route.Routes;
 import com.example.projeto2_desktop.App;
 import javafx.fxml.FXML;

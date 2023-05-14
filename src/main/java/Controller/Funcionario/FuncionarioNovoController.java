@@ -44,9 +44,9 @@ public class FuncionarioNovoController {
     @FXML
     private TextField usernameText;
 
-    private UtilizadorService utilizadorService = new UtilizadorService();
+    private final UtilizadorService utilizadorService = new UtilizadorService();
 
-    private CodPostalService codPostalService = new CodPostalService();
+    private final CodPostalService codPostalService = new CodPostalService();
 
     @FXML
     void CriarFuncionario() {

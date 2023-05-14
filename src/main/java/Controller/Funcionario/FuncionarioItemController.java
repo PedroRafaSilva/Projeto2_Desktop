@@ -1,8 +1,9 @@
 package Controller.Funcionario;
 
-import Controller.Cliente.EditarClienteController;
+import Controller.Login.LoginController;
 import Route.Routes;
-import Utilizador.*;
+import Utilizador.Utilizador;
+import Utilizador.UtilizadorService;
 import com.example.projeto2_desktop.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -33,7 +35,22 @@ public class FuncionarioItemController {
     @FXML
     private Label telefoneText;
 
+    @FXML
+    private ImageView deleteButton;
+
+    @FXML
+    private ImageView editButton;
+
+    public void checkUser(){
+        UtilizadorService utilizadorService = new UtilizadorService();
+        if(utilizadorService.getUtilizadorById(LoginController.getUserId()).getIdtipoutilizador() != 1){
+            deleteButton.setVisible(false);
+            editButton.setVisible(false);
+        }
+    }
+
     public void getData(Utilizador utilizador){
+        checkUser();
         nomeText.setText(utilizador.getNome());
         telefoneText.setText(utilizador.getTelefone());
         emailText.setText(utilizador.getEmail());

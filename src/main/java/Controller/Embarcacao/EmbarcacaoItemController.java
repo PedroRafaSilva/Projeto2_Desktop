@@ -49,7 +49,6 @@ public class EmbarcacaoItemController {
                 buttonType, buttonType1);
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == buttonType) {
-            System.out.println("LOL");
             embarcacaoService.deleteEmbarcacao(Integer.parseInt(idText.getText()));
         }
         Routes.handleGeneric(event, "", "EmbarcacaoView.fxml");
@@ -57,7 +56,7 @@ public class EmbarcacaoItemController {
     }
 
     @FXML
-    void editEmbarcacao(MouseEvent event) throws IOException {
+    void editEmbarcacao() throws IOException {
         EmbarcacaoService embarcacaoService = new EmbarcacaoService();
         Stage stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("EmbarcacaoEditarView.fxml"));

@@ -1,6 +1,5 @@
 package Controller.Marina;
 
-import Controller.Funcionario.FuncionarioItemController;
 import Marina.Marina;
 import Marina.MarinaService;
 import Route.Routes;
@@ -38,7 +37,7 @@ public class MarinaController implements Initializable {
     @FXML
     private TextField searchField;
 
-    private MarinaService marinaService = new MarinaService();
+    private final MarinaService marinaService = new MarinaService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

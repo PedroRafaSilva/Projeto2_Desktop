@@ -1,5 +1,7 @@
 package Controller.PedidoManutencao;
 
+import Fatura.Fatura;
+import Fatura.FaturaService;
 import PedidoManutencao.PedidoManutencao;
 import PedidoManutencao.PedidoManutencaoService;
 import com.example.projeto2_desktop.App;
@@ -57,17 +59,26 @@ public class PedidoItemController {
 
     @FXML
     void deletePedido() {
-        ButtonType buttonType = new ButtonType("Cancelar Agendamento");
+        ButtonType buttonType = new ButtonType("Cancelar Pedido");
         ButtonType buttonType1 = new ButtonType(" Não Cancelar");
         Alert alert = new Alert(Alert.AlertType.WARNING,
                 "Tem a certeza que pretende cancelar o Pedido?\nEsta ação é irreversivel!",
                 buttonType, buttonType1);
         Optional<ButtonType> result = alert.showAndWait();
+
+        FaturaService faturaService = new FaturaService();
+        PedidoManutencao pedidoManutencao = pedidoManutencaoService.getPedidoManutencaoById(Integer.parseInt(idText.getText()));
+        Fatura fatura = faturaService.getFaturaOfMothFromCliente(pedidoManutencao.getEmbarcacao().getIdUtilizador(), LocalDate.now().getMonthValue());
+        fatura.setValoragendamento(fatura.getValormanutencao() - pedidoManutencao.getValor());
+        fatura.setValortotal(fatura.getValoragendamento() + fatura.getValormanutencao() + fatura.getValorembarcacoes());
+        faturaService.updateFatura(fatura);
+
         if (result.isPresent() && result.get() == buttonType) {
             pedidoManutencaoService.deletePedidoManutencao(Integer.parseInt(idText.getText()));
         }
         Stage stage = (Stage) oficinaText.getScene().getWindow() ;
         stage.close();
+
     }
 
     @FXML

@@ -118,7 +118,7 @@ public class ClienteController implements Initializable {
 
     @FXML
     void manageFaturas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "", "FaturasView.fxml");
+        Routes.handleGeneric(event, "", "FaturaView.fxml");
 
     }
 

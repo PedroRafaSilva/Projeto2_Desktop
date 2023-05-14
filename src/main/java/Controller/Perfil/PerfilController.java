@@ -1,19 +1,26 @@
-package Controller.Cliente;
+package Controller.Perfil;
 
 import CodPostal.CodPostal;
 import CodPostal.CodPostalService;
+import Controller.Login.LoginController;
+import Route.Routes;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class EditarClienteController {
+public class PerfilController implements Initializable {
+
     @FXML
     private TextField codPostText;
 
@@ -36,6 +43,9 @@ public class EditarClienteController {
     private Label errorText;
 
     @FXML
+    private Button guardarButton;
+
+    @FXML
     private VBox infoVbox;
 
     @FXML
@@ -55,6 +65,12 @@ public class EditarClienteController {
 
     @FXML
     private TextField nomeText;
+
+    @FXML
+    private VBox pane1;
+
+    @FXML
+    private VBox pane2;
 
     @FXML
     private Label password;
@@ -86,14 +102,16 @@ public class EditarClienteController {
     @FXML
     private TextField usernameText;
 
-    @FXML
-    private Button guardarButton;
-
     private final UtilizadorService utilizadorService = new UtilizadorService();
 
     private final CodPostalService codPostalService = new CodPostalService();
 
-    private int idCliente;
+    private int idCliente = LoginController.getUserId();
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        getData();
+    }
 
     @FXML
     void guardar() {
@@ -118,13 +136,15 @@ public class EditarClienteController {
             utilizador.setcPostal(codPostText.getText());
             utilizador.setUsername(usernameText.getText());
             utilizador.setPassword(passwordText.getText());
-            utilizador.setIdtipoutilizador(3);
+            utilizador.setIdtipoutilizador(utilizadorService.getUtilizadorById(idCliente).getIdtipoutilizador());
 
             criationValid(codPostal, utilizador);
 
-            Stage stage = (Stage) guardarButton.getScene().getWindow();
-            stage.close();
-
+            infoVbox.setVisible(true);
+            editVbox.setVisible(false);
+            editarButton.setVisible(true);
+            guardarButton.setVisible(false);
+            getData();
 
         }
     }
@@ -182,8 +202,9 @@ public class EditarClienteController {
         utilizadorService.updateUtilizador(utilizador);
     }
 
-    public void getData(Utilizador utilizador){
+    public void getData(){
         CodPostalService codPostalService = new CodPostalService();
+        Utilizador utilizador = utilizadorService.getUtilizadorById(idCliente);
         nome.setText(utilizador.getNome());
         email.setText(utilizador.getEmail());
         telefone.setText(utilizador.getTelefone());
@@ -214,6 +235,73 @@ public class EditarClienteController {
         editarButton.setVisible(false);
         guardarButton.setVisible(true);
     }
+
+    @FXML
+    void logout(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "LoginView.fxml");
+    }
+
+    @FXML
+    void manageEmbarcacoes(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "EmbarcacaoView.fxml");
+    }
+
+    @FXML
+    void manageFaturas(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "FaturaView.fxml");
+
+    }
+
+    @FXML
+    void manageFuncionarios(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "FuncionarioView.fxml");
+    }
+
+    @FXML
+    void manageMarinas(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "MarinaView.fxml");
+    }
+
+    @FXML
+    void manageOficinas(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "OficinaView.fxml");
+    }
+    @FXML
+    void manageClientes(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "ClientesView.fxml");
+    }
+
+    @FXML
+    void managePedidos(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "PedidoManutencaoView.fxml");
+    }
+
+    @FXML
+    void userPerfil(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "PerfilView.fxml");
+    }
+
+    @FXML
+    void manageAgendamentos(MouseEvent event) throws IOException {
+        Routes.handleGeneric(event, "", "AgendamentoView.fxml");
+    }
+
+    @FXML
+    void getMenu() {
+        if (pane1.isVisible()){
+            pane1.setVisible(false);
+            pane1.setPrefWidth(0);
+            pane2.setPrefWidth(1444);
+        }
+        else {
+            pane1.setVisible(true);
+            pane1.setPrefWidth(295);
+            pane2.setPrefWidth(1165);
+        }
+    }
+
+
+
 
 
 }

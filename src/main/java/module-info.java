@@ -17,6 +17,8 @@ module com.example.projeto2_desktop {
     opens Controller.Embarcacao to javafx.fxml;
     exports Controller.Extra;
     opens Controller.Extra to javafx.fxml;
+    exports Controller.Fatura;
+    opens Controller.Fatura to javafx.fxml;
     exports Controller.Funcionario;
     opens Controller.Funcionario to javafx.fxml;
     exports Controller.Marina;
@@ -25,4 +27,6 @@ module com.example.projeto2_desktop {
     opens Controller.Oficina to javafx.fxml;
     exports Controller.PedidoManutencao;
     opens Controller.PedidoManutencao to javafx.fxml;
+    exports Controller.Perfil;
+    opens Controller.Perfil to javafx.fxml;
 }

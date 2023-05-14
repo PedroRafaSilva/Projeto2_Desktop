@@ -30,3 +30,12 @@
     -fx-background-radius: 10;
     -fx-border-radius: 10;
 }
+
+.AnchorPane{
+    -fx-background-color: #FFFF;
+    -fx-text-fill: #0d0303;
+    -fx-border-color: #29296b;
+    -fx-border-width: 2;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}

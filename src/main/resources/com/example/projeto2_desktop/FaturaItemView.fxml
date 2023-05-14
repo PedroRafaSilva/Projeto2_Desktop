@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="900.0" style="-fx-border-radius: 10; -fx-border-color: #29296b; -fx-background-radius: 100;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Fatura.FaturaItemController">
+   <children>
+      <Label fx:id="idText" layoutX="36.0" layoutY="26.0" text="SIUU" visible="false" />
+      <Label fx:id="nomeText" prefWidth="200.0" text="Titular">
+         <HBox.margin>
+            <Insets left="25.0" right="25.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="datacriacao" prefHeight="20.0" prefWidth="131.0" text="DataCriacao">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="dataPrazo" prefHeight="20.0" prefWidth="117.0" text="DataPrazo">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="valorText" prefWidth="100.0" text="Valor">
+         <HBox.margin>
+            <Insets right="50.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="estadoText" prefHeight="20.0" prefWidth="101.0" text="Estado">
+         <HBox.margin>
+            <Insets right="50.0" />
+         </HBox.margin>
+         <font>
+            <Font name="Calibri" size="14.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="editarButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#editAgendamento" pickOnBounds="true" preserveRatio="true">
+         <HBox.margin>
+            <Insets right="25.0" />
+         </HBox.margin>
+         <image>
+            <Image url="@../../../Images/Info.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+   </children>
+</HBox>

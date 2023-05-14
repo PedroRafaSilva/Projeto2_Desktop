@@ -1,8 +1,5 @@
 package Controller.Oficina;
 
-import Controller.Marina.MarinaItemController;
-import Marina.Marina;
-import Marina.MarinaService;
 import Oficina.Oficina;
 import Oficina.OficinaService;
 import Route.Routes;
@@ -40,7 +37,7 @@ public class OficinaController implements Initializable {
     @FXML
     private TextField searchField;
 
-    private OficinaService oficinaService = new OficinaService();
+    private final OficinaService oficinaService = new OficinaService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -158,6 +155,5 @@ public class OficinaController implements Initializable {
     void manageAgendamentos(MouseEvent event) throws IOException {
         Routes.handleGeneric(event, "", "AgendamentoView.fxml");
     }
-
 
 }

@@ -44,9 +44,9 @@ public class MarinaEditarController {
     @FXML
     private TextField nomeText;
 
-    private MarinaService marinaService = new MarinaService();
+    private final MarinaService marinaService = new MarinaService();
 
-    private CodPostalService codPostalService = new CodPostalService();
+    private final CodPostalService codPostalService = new CodPostalService();
 
     private int idMarina;
 

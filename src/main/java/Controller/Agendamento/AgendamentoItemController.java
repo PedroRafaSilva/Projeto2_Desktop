@@ -2,9 +2,10 @@ package Controller.Agendamento;
 
 import Agendamento.Agendamento;
 import Agendamento.AgendamentoService;
+import Fatura.Fatura;
+import Fatura.FaturaService;
 import ListaEstadoAgendamento.ListaEstadoAgendamento;
 import ListaEstadoAgendamento.ListaEstadoAgendamentoService;
-import Route.Routes;
 import com.example.projeto2_desktop.App;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,7 +14,6 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
@@ -110,7 +110,7 @@ public class AgendamentoItemController {
 
 
     @FXML
-    void deleteAgendamento(MouseEvent event) throws IOException {
+    void deleteAgendamento() {
         ListaEstadoAgendamento listaEstadoAgendamento = new ListaEstadoAgendamento();
         listaEstadoAgendamento.setIdagendamento(Integer.parseInt(idText.getText()));
         listaEstadoAgendamento.setIdestado(1);
@@ -124,7 +124,16 @@ public class AgendamentoItemController {
         if (result.isPresent() && result.get() == buttonType) {
             listaEstadoAgendamentoService.createListaEstadoAgendamento(listaEstadoAgendamento);
         }
-        Routes.handleGeneric(event, "", "AgendamentoDayController.fxml");
+
+        FaturaService faturaService = new FaturaService();
+        Agendamento agendamento = agendamentoService.getAgendamentoById(Integer.parseInt(idText.getText()));
+        Fatura fatura = faturaService.getFaturaOfMothFromCliente(agendamento.getIdutilizador(), LocalDate.now().getMonthValue());
+        fatura.setValoragendamento(fatura.getValoragendamento() - agendamento.getValorextras());
+        fatura.setValortotal(fatura.getValoragendamento() + fatura.getValormanutencao() + fatura.getValorembarcacoes());
+        faturaService.updateFatura(fatura);
+
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
     }
 
     @FXML
@@ -137,6 +146,7 @@ public class AgendamentoItemController {
         AgendamentoEditarController agendamentoEditarController = fxmlLoader.getController();
         agendamentoEditarController.getData(agendamentoService.getAgendamentoById(Integer.parseInt(idText.getText())));
         stage.showAndWait();
-        getData(agendamentoService.getAgendamentoById(Integer.parseInt(idText.getText())));
+        Stage stage1 = (Stage) cancelButton.getScene().getWindow() ;
+        stage1.close();
     }
 }

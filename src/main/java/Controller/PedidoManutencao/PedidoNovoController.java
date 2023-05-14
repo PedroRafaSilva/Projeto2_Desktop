@@ -1,7 +1,9 @@
 package Controller.PedidoManutencao;
 
+import Controller.Login.LoginController;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
+import Fatura.Fatura;
 import Fatura.FaturaService;
 import Oficina.Oficina;
 import Oficina.OficinaService;
@@ -61,8 +63,13 @@ public class PedidoNovoController implements Initializable {
     }
 
     public void getAllFuncionarios() {
-        for (Utilizador utilizador : utilizadorService.getAllFuncionarios()) {
-            funcionarioBox.getItems().add(utilizador.getNome());
+        if (utilizadorService.getUtilizadorById(LoginController.getUserId()).getIdtipoutilizador() == 2){
+            funcionarioBox.setValue(utilizadorService.getUtilizadorById(LoginController.getUserId()).getNome());
+            funcionarioBox.setDisable(true);
+        } else {
+            for (Utilizador utilizador : utilizadorService.getAllFuncionarios()) {
+                funcionarioBox.getItems().add(utilizador.getNome());
+            }
         }
     }
 
@@ -112,6 +119,11 @@ public class PedidoNovoController implements Initializable {
         pedidoManutencao.setIdfatura(faturaService.getFaturaOfMothFromCliente(embarcacaoService.getEmbarcacaobyName(embarcacaoBox.getValue()).getutilizador().getIdutilizador(), data.getValue().getMonthValue()).getIdfatura());
         pedidoManutencao.setDescricao(descricaoBox.getValue());
         pedidoManutencao.setIdoficina(oficinaService.getOficinaByName(oficinaBox.getValue()).getIdoficina());
+
+        Fatura fatura = faturaService.getFaturaOfMothFromCliente(embarcacaoService.getEmbarcacaobyName(embarcacaoBox.getValue()).getIdUtilizador(), LocalDate.now().getMonthValue());
+        fatura.setValormanutencao(fatura.getValormanutencao() + pedidoManutencao.getValor());
+        fatura.setValortotal(fatura.getValoragendamento() + fatura.getValormanutencao() + fatura.getValorembarcacoes());
+        faturaService.updateFatura(fatura);
         criationValid(pedidoManutencao);
     }
 

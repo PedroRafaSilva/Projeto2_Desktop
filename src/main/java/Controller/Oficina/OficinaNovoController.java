@@ -2,8 +2,6 @@ package Controller.Oficina;
 
 import CodPostal.CodPostal;
 import CodPostal.CodPostalService;
-import Marina.Marina;
-import Marina.MarinaService;
 import Oficina.Oficina;
 import Oficina.OficinaService;
 import javafx.fxml.FXML;
@@ -24,9 +22,9 @@ public class OficinaNovoController {
     @FXML
     private TextField nomeText;
 
-    private OficinaService oficinaService = new OficinaService();
+    private final OficinaService oficinaService = new OficinaService();
 
-    private CodPostalService codPostalService = new CodPostalService();
+    private final CodPostalService codPostalService = new CodPostalService();
 
     @FXML
     void CriarOficina() {

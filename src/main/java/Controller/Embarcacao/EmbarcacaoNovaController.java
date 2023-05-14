@@ -35,7 +35,7 @@ public class EmbarcacaoNovaController implements Initializable {
     @FXML
     private ComboBox<String> titularBox;
 
-    private EmbarcacaoService embarcacaoService = new EmbarcacaoService();
+    private final EmbarcacaoService embarcacaoService = new EmbarcacaoService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

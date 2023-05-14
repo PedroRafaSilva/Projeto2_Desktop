@@ -1,13 +1,9 @@
 package Controller.Embarcacao;
 
-import Comprimento.Comprimento;
-import Comprimento.ComprimentoService;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
 import Route.Routes;
-import Utilizador.UtilizadorService;
 import com.example.projeto2_desktop.App;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -72,7 +68,7 @@ public class EmbarcacaoController implements Initializable {
     }
 
     @FXML
-    void Search(MouseEvent event) {
+    void Search() {
         String search = searchField.getText();
         clienteBox.setValue(" ");
         comprimentoBox.setValue(" ");
@@ -149,7 +145,7 @@ public class EmbarcacaoController implements Initializable {
     }
 
     @FXML
-    void createNovoEmbarcacaco(ActionEvent event) throws IOException {
+    void createNovoEmbarcacaco() throws IOException {
         clienteBox.valueProperty().setValue(null);
         comprimentoBox.valueProperty().setValue(null);
         Stage stage = new Stage();
@@ -190,7 +186,7 @@ public class EmbarcacaoController implements Initializable {
 
     @FXML
     void manageFaturas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "", "FaturasView.fxml");
+        Routes.handleGeneric(event, "", "FaturaView.fxml");
 
     }
 

@@ -1,6 +1,6 @@
 package Controller.Funcionario;
 
-import Controller.Cliente.ClienteItemController;
+import Controller.Login.LoginController;
 import Route.Routes;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -27,6 +28,9 @@ public class FuncionarioController implements Initializable {
     private VBox list;
 
     @FXML
+    private Button novoButton;
+
+    @FXML
     private VBox pane1;
 
     @FXML
@@ -38,11 +42,18 @@ public class FuncionarioController implements Initializable {
     @FXML
     private TextField searchField;
 
-    private UtilizadorService utilizadorService = new UtilizadorService();
+    private final UtilizadorService utilizadorService = new UtilizadorService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         getFuncionariosItems();
+        checkUser();
+    }
+
+    public void checkUser(){
+        if(utilizadorService.getUtilizadorById(LoginController.getUserId()).getIdtipoutilizador() != 1){
+            novoButton.setVisible(false);
+        }
     }
 
     @FXML

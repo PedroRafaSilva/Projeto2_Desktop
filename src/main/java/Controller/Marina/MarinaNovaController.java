@@ -4,8 +4,6 @@ import CodPostal.CodPostal;
 import CodPostal.CodPostalService;
 import Marina.Marina;
 import Marina.MarinaService;
-import Utilizador.Utilizador;
-import Utilizador.UtilizadorService;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -25,9 +23,9 @@ public class MarinaNovaController {
     @FXML
     private TextField nomeText;
 
-    private MarinaService marinaService = new MarinaService();
+    private final MarinaService marinaService = new MarinaService();
 
-    private CodPostalService codPostalService = new CodPostalService();
+    private final CodPostalService codPostalService = new CodPostalService();
 
     @FXML
     void CriarMarina() {

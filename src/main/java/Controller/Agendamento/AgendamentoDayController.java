@@ -1,13 +1,10 @@
 package Controller.Agendamento;
 
 import Agendamento.Agendamento;
-import Controller.Extra.ExtraItemController;
 import Agendamento.AgendamentoService;
 import com.example.projeto2_desktop.App;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
@@ -15,8 +12,6 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 public class AgendamentoDayController{
 
@@ -62,7 +57,7 @@ public class AgendamentoDayController{
 
 
     @FXML
-    void closeWindow(ActionEvent event) {
+    void closeWindow() {
         Stage stage = (Stage) data.getScene().getWindow();
         stage.close();
     }

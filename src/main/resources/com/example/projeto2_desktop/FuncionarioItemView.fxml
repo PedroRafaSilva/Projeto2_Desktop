@@ -39,7 +39,7 @@
          <font>
             <Font name="Calibri" size="14.0" />
          </font></Label>
-      <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#editFuncionario" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="editButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#editFuncionario" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets right="25.0" />
          </HBox.margin>
@@ -50,7 +50,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#deleteFuncionario" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="deleteButton" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#deleteFuncionario" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets right="25.0" />
          </HBox.margin>

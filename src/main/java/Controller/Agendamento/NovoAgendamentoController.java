@@ -5,6 +5,7 @@ import Agendamento.AgendamentoService;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
 import Fatura.FaturaService;
+import PedidoManutencao.PedidoManutencaoService;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
 import com.example.projeto2_desktop.App;
@@ -122,6 +123,7 @@ public class NovoAgendamentoController implements Initializable {
 
     public boolean validations(){
         AgendamentoService agendamentoService = new AgendamentoService();
+        PedidoManutencaoService pedidoManutencaoService = new PedidoManutencaoService();
         if (clienteBox.getValue() == null || embarcacaoBox.getValue() == null || data.getValue() == null ||
                 horaInicioBox.getValue() == null || horaFimBox.getValue() == null){
             errorText.setText("Um ou mais campos estão vazios!!!");
@@ -147,6 +149,11 @@ public class NovoAgendamentoController implements Initializable {
             return false;
         }
 
+        if(pedidoManutencaoService.checkPedidoEmbarcacaoAt(embarcacaoService.getEmbarcacaobyName(embarcacaoBox.getValue()).getIdEmbarcacao(), Date.valueOf(data.getValue()))) {
+            errorText.setText("Essa embarcação não está disponivel nesse dia.");
+            return false;
+
+        }
         return true;
     }
 

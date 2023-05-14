@@ -5,8 +5,8 @@ import Agendamento.AgendamentoService;
 import Controller.Extra.ExtraEditarController;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
+import Fatura.Fatura;
 import Fatura.FaturaService;
-import ListaEstadoAgendamento.ListaEstadoAgendamento;
 import ListaEstadoAgendamento.ListaEstadoAgendamentoService;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
@@ -172,6 +172,12 @@ public class AgendamentoEditarController implements Initializable {
         agendamento.setHorafim(Time.valueOf(horaFimBox.getValue()));
         agendamento.setIdutilizador(idUtilizador);
         agendamento.setIdfatura(faturaService.getFaturaOfMothFromCliente(idUtilizador, data.getValue().getMonthValue()).getIdfatura());
+        criationValid(agendamento);
+
+        Fatura fatura = faturaService.getFaturaOfMothFromCliente(idUtilizador, LocalDate.now().getMonthValue());
+        fatura.setValoragendamento(fatura.getValoragendamento() - Integer.parseInt(valorText.getText()) + agendamento.getValorextras());
+        fatura.setValortotal(fatura.getValoragendamento() + fatura.getValormanutencao() + fatura.getValorembarcacoes());
+        faturaService.updateFatura(fatura);
         criationValid(agendamento);
     }
 

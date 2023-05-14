@@ -5,6 +5,7 @@ import Agendamento.AgendamentoService;
 import Controller.Extra.ExtraAdicionarController;
 import Embarcacao.Embarcacao;
 import Embarcacao.EmbarcacaoService;
+import Fatura.Fatura;
 import Fatura.FaturaService;
 import ListaEstadoAgendamento.ListaEstadoAgendamento;
 import ListaEstadoAgendamento.ListaEstadoAgendamentoService;
@@ -150,7 +151,6 @@ public class AgendamentoVerificarController implements Initializable {
         int idUtilizador = utilizadorService.getClienteByNome(clienteBox.getValue()).getIdutilizador();
 
         Agendamento agendamento = new Agendamento();
-        System.out.println(idAgendamento);
         agendamento.setIdagendamento(idAgendamento);
         agendamento.setData(Date.valueOf(data.getValue()));
         agendamento.setValorextras(Float.valueOf(valor.getText()));
@@ -160,6 +160,10 @@ public class AgendamentoVerificarController implements Initializable {
         agendamento.setIdutilizador(idUtilizador);
         agendamento.setIdfatura(faturaService.getFaturaOfMothFromCliente(idUtilizador, data.getValue().getMonthValue()).getIdfatura());
 
+        Fatura fatura = faturaService.getFaturaOfMothFromCliente(idUtilizador, LocalDate.now().getMonthValue());
+        fatura.setValoragendamento(fatura.getValoragendamento() - Float.parseFloat(valorText.getText()) + agendamento.getValorextras());
+        fatura.setValortotal(fatura.getValoragendamento() + fatura.getValormanutencao() + fatura.getValorembarcacoes());
+        faturaService.updateFatura(fatura);
         criationValid(agendamento);
     }
 

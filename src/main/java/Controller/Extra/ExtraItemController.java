@@ -1,6 +1,5 @@
 package Controller.Extra;
 
-import Agendamento.AgendamentoService;
 import AgendamentoExtra.AgendamentoExtra;
 import Extra.Extra;
 import Extra.ExtraService;
@@ -36,7 +35,7 @@ public class ExtraItemController{
     private float precoTotalExtra = 0;
     private final ExtraService extraService = new ExtraService();
 
-    private ListaEstadoAgendamentoService listaEstadoAgendamentoService = new ListaEstadoAgendamentoService();
+    private final ListaEstadoAgendamentoService listaEstadoAgendamentoService = new ListaEstadoAgendamentoService();
 
     public void getExtra(Extra extra){
         idText.setText(String.valueOf(extra.getIdextra()));

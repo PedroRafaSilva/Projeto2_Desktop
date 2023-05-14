@@ -87,9 +87,9 @@ public class FuncionarioEditarController {
     @FXML
     private TextField usernameText;
 
-    private UtilizadorService utilizadorService = new UtilizadorService();
+    private final UtilizadorService utilizadorService = new UtilizadorService();
 
-    private CodPostalService codPostalService = new CodPostalService();
+    private final CodPostalService codPostalService = new CodPostalService();
 
     private int idFuncionario;
 

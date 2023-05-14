@@ -1,6 +1,5 @@
 package Controller.Embarcacao;
 
-import CodPostal.CodPostal;
 import Comprimento.Comprimento;
 import Comprimento.ComprimentoService;
 import Embarcacao.Embarcacao;
@@ -9,7 +8,6 @@ import Marina.Marina;
 import Marina.MarinaService;
 import Utilizador.Utilizador;
 import Utilizador.UtilizadorService;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -65,7 +63,7 @@ public class EmbarcacaoEditarController implements Initializable {
 
     private int idEmbarcacao;
 
-    private EmbarcacaoService embarcacaoService = new EmbarcacaoService();
+    private final EmbarcacaoService embarcacaoService = new EmbarcacaoService();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
