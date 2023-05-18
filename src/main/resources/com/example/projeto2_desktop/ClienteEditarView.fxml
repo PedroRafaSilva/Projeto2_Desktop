@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="370.0" style="-fx-background-color: #FFFF;" stylesheets="@../../../CSS/Marine.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Cliente.EditarClienteController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-14.0" prefHeight="90.0" prefWidth="675.0" text="Editar Cliente">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-14.0" prefHeight="90.0" prefWidth="675.0" text="Detalhes Cliente">
          <font>
             <Font name="Calibri Bold" size="50.0" />
          </font>
@@ -185,7 +185,7 @@
             </PasswordField>
          </children>
       </VBox>
-      <Button fx:id="editarButton" layoutX="204.0" layoutY="592.0" mnemonicParsing="false" onAction="#editar" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar">
+      <Button fx:id="editarButton" layoutX="204.0" layoutY="592.0" mnemonicParsing="false" onAction="#editar" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar Cliente">
          <font>
             <Font size="21.0" />
          </font>
