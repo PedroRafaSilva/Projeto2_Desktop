@@ -12,7 +12,7 @@
 
 <AnchorPane prefHeight="420.0" prefWidth="675.0" style="-fx-background-color: #FFFF;" stylesheets="@../../../CSS/Marine.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Embarcacao.EmbarcacaoEditarController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="-14.0" prefHeight="90.0" prefWidth="666.0" text="Editar Embarcação">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="9.0" layoutY="-14.0" prefHeight="90.0" prefWidth="666.0" text="Detalhes Embarcação">
          <font>
             <Font name="Calibri Bold" size="50.0" />
          </font>
@@ -80,7 +80,7 @@
             </ComboBox>
          </children>
       </VBox>
-      <Button fx:id="editarButton" layoutX="194.0" layoutY="322.0" mnemonicParsing="false" onAction="#editar" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar">
+      <Button fx:id="editarButton" layoutX="194.0" layoutY="322.0" mnemonicParsing="false" onAction="#editar" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar Embarcação">
          <font>
             <Font size="21.0" />
          </font>

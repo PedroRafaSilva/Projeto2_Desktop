@@ -453,7 +453,7 @@
                                     </PasswordField>
                                  </children>
                               </VBox>
-                              <Button fx:id="editarButton" layoutX="184.0" layoutY="692.0" mnemonicParsing="false" onAction="#editar" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar">
+                              <Button fx:id="editarButton" layoutX="184.0" layoutY="692.0" mnemonicParsing="false" onAction="#editar" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar Perfil">
                                  <font>
                                     <Font size="21.0" />
                                  </font>
