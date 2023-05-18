@@ -15,7 +15,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="78.0" prefWidth="610.0">
          <children>
-            <Label prefHeight="62.0" prefWidth="197.0" text="Editar Pedido">
+            <Label prefHeight="62.0" prefWidth="238.0" text="Detalhes Pedido">
                <font>
                   <Font name="System Bold" size="31.0" />
                </font>
@@ -164,7 +164,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="alterarButton" layoutX="160.0" layoutY="450.0" mnemonicParsing="false" onAction="#editarPedido" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Alterar Pedido">
+      <Button fx:id="alterarButton" layoutX="160.0" layoutY="450.0" mnemonicParsing="false" onAction="#editarPedido" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar Pedido">
          <font>
             <Font size="21.0" />
          </font>
