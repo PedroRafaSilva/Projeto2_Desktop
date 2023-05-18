@@ -15,7 +15,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="62.0" prefWidth="800.0">
          <children>
-            <Label text="Editar Agendamento">
+            <Label text="Detalhes Agendamento">
                <font>
                   <Font name="System Bold" size="31.0" />
                </font>
@@ -188,7 +188,7 @@
             </Label>
          </children>
       </VBox>
-      <Button fx:id="alterarButton" layoutX="270.0" layoutY="530.0" mnemonicParsing="false" onAction="#editarAgendamento" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Alterar Agendamento">
+      <Button fx:id="alterarButton" layoutX="270.0" layoutY="530.0" mnemonicParsing="false" onAction="#editarAgendamento" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar Agendamento">
          <font>
             <Font size="21.0" />
          </font>
