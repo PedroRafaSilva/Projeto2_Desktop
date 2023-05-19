@@ -301,7 +301,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </TextField>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoMarina" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Marine.css" text="Novo Marina">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoMarina" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Marine.css" text="Nova Marina">
                            <HBox.margin>
                               <Insets left="120.0" right="250.0" />
                            </HBox.margin>
