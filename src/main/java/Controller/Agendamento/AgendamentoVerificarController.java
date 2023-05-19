@@ -174,7 +174,7 @@ public class AgendamentoVerificarController implements Initializable {
             errorText.setText("Um ou mais campos estão vazios!!!");
             return false;
         }
-        if (data.getValue().isBefore(LocalDate.now())){
+        if (!data.getValue().isAfter(LocalDate.now())){
             errorText.setText("A data tem que ser futura!");
             return false;
         }

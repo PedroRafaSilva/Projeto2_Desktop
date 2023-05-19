@@ -100,12 +100,12 @@
                   <Insets bottom="20.0" />
                </VBox.margin>
             </DatePicker>
-            <ComboBox fx:id="horaInicioBox" prefHeight="40.0" prefWidth="200.0" promptText="HH:mm" stylesheets="@../../../CSS/Marine.css">
+            <ComboBox fx:id="horaInicioBox" prefHeight="40.0" prefWidth="200.0" promptText="HH:MM" stylesheets="@../../../CSS/Marine.css">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
             </ComboBox>
-            <ComboBox fx:id="horaFimBox" prefHeight="40.0" prefWidth="200.0" promptText="HH:mm" stylesheets="@../../../CSS/Marine.css">
+            <ComboBox fx:id="horaFimBox" prefHeight="40.0" prefWidth="200.0" promptText="HH:MM" stylesheets="@../../../CSS/Marine.css">
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
@@ -118,14 +118,20 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label fx:id="valorText" prefHeight="40.0" prefWidth="54.0" text="Label">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            <HBox prefHeight="40.0" prefWidth="415.0">
+               <children>
+                  <Label fx:id="valorText" prefHeight="40.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="valorText1" layoutX="10.0" layoutY="10.0" prefHeight="40.0" prefWidth="54.0" text="€">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
       </VBox>
       <VBox fx:id="infoVbox" layoutX="293.0" layoutY="88.0" prefHeight="400.0" prefWidth="160.0">
@@ -178,14 +184,20 @@
                   <Font size="14.0" />
                </font>
             </Button>
-            <Label fx:id="valor" prefHeight="40.0" text="Extras:">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            <HBox prefHeight="41.0" prefWidth="160.0">
+               <children>
+                  <Label fx:id="valor" prefHeight="40.0" text="Extras:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="valor1" prefHeight="40.0" text="€">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
       </VBox>
       <Button fx:id="alterarButton" layoutX="270.0" layoutY="530.0" mnemonicParsing="false" onAction="#editarAgendamento" pickOnBounds="false" prefHeight="62.0" prefWidth="256.0" stylesheets="@../../../CSS/Marine.css" text="Editar Agendamento">

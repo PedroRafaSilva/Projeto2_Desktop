@@ -308,7 +308,7 @@
                               <Insets left="50.0" />
                            </HBox.margin>
                         </ComboBox>
-                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoEmbarcacaco" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Marine.css" text="Novo Embarcações">
+                        <Button alignment="CENTER" mnemonicParsing="false" onAction="#createNovoEmbarcacaco" prefHeight="40.0" prefWidth="300.0" stylesheets="@../../../CSS/Marine.css" text="Novo Embarcação">
                            <HBox.margin>
                               <Insets left="50.0" right="100.0" />
                            </HBox.margin>

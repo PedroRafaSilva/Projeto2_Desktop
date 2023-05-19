@@ -11,7 +11,7 @@
 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="397.0" style="-fx-border-radius: 10; -fx-border-color: #29296b; -fx-background-radius: 10; -fx-background-color: #FFFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Extra.ExtraItemController">
    <children>
       <Label fx:id="idText" layoutX="36.0" layoutY="26.0" text="SIUU" visible="false" />
-      <Label fx:id="nomeText" prefHeight="18.0" prefWidth="86.0" text="SIUU">
+      <Label fx:id="nomeText" prefHeight="18.0" prefWidth="79.0" text="SIUU">
          <HBox.margin>
             <Insets left="5.0" right="25.0" />
          </HBox.margin>
@@ -19,7 +19,7 @@
             <Font name="Calibri" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="preco" prefHeight="18.0" prefWidth="37.0" text="0">
+      <Label fx:id="preco" prefHeight="18.0" prefWidth="42.0" text="0">
          <HBox.margin>
             <Insets right="25.0" />
          </HBox.margin>
@@ -29,11 +29,12 @@
       </Label>
       <Label fx:id="precoTotal" prefHeight="18.0" prefWidth="37.0" text="0">
          <HBox.margin>
-            <Insets right="50.0" />
+            <Insets left="25.0" right="30.0" />
          </HBox.margin>
          <font>
             <Font name="Calibri" size="14.0" />
-         </font></Label>
+         </font>
+      </Label>
       <ImageView fx:id="plusButton" fitHeight="40.0" fitWidth="20.0" onMouseClicked="#add" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
             <Insets left="10.0" right="20.0" />
@@ -55,7 +56,7 @@
       </Label>
       <ImageView fx:id="minusButton" fitHeight="40.0" fitWidth="20.0" onMouseClicked="#subtract" pickOnBounds="true" preserveRatio="true">
          <HBox.margin>
-            <Insets />
+            <Insets right="10.0" />
          </HBox.margin>
          <image>
             <Image url="@../../../Images/Subtract.png" />

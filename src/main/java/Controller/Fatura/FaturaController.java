@@ -72,52 +72,52 @@ public class FaturaController implements Initializable {
 
     @FXML
     void logout(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Login", "LoginView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "LoginView.fxml");
     }
 
     @FXML
     void manageClientes(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Clientes", "ClientesView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "ClientesView.fxml");
     }
 
     @FXML
     void manageEmbarcacoes(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Embarcações", "EmbarcacaoView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "EmbarcacaoView.fxml");
     }
 
     @FXML
     void manageFaturas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Faturas", "FaturaView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "FaturaView.fxml");
 
     }
 
     @FXML
     void manageFuncionarios(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Funcionarios", "FuncionarioView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "FuncionarioView.fxml");
     }
 
     @FXML
     void managePedidos(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "", "PedidoManutencaoView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "PedidoManutencaoView.fxml");
     }
 
     @FXML
     void manageMarinas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Marinas", "MarinaView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "MarinaView.fxml");
     }
 
     @FXML
     void manageOficinas(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Oficinas", "OficinaView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "OficinaView.fxml");
     }
 
     @FXML
     void manageAgendamentos(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Agendamentos", "AgendamentoView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "AgendamentoView.fxml");
     }
 
     @FXML
     void userPerfil(MouseEvent event) throws IOException {
-        Routes.handleGeneric(event, "Meu Perfil", "PerfilView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "PerfilView.fxml");
     }
 }

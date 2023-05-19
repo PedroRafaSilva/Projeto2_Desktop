@@ -18,6 +18,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -116,6 +117,7 @@ public class NovoAgendamentoController implements Initializable {
         Stage stage1 = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("ExtraView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        stage1.initStyle(StageStyle.UNDECORATED);
         stage1.setScene(scene);
         stage1.initModality(Modality.APPLICATION_MODAL);
         stage1.show();
@@ -129,7 +131,7 @@ public class NovoAgendamentoController implements Initializable {
             errorText.setText("Um ou mais campos estão vazios!!!");
             return false;
         }
-        if (data.getValue().isBefore(LocalDate.now())){
+        if (!data.getValue().isAfter(LocalDate.now())){
             errorText.setText("A data tem que ser futura!");
             return false;
         }

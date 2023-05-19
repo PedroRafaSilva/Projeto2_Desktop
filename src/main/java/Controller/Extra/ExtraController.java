@@ -17,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
@@ -75,6 +76,7 @@ public class ExtraController implements Initializable {
         stage = new Stage();
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("AgendamentoVerificarView.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         AgendamentoVerificarController agendamentoVerificarController = fxmlLoader.getController();

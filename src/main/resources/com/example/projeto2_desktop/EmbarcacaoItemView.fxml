@@ -10,7 +10,7 @@
 
 <HBox alignment="CENTER_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="900.0" style="-fx-border-radius: 10; -fx-border-color: #29296b; -fx-background-radius: 100;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Embarcacao.EmbarcacaoItemController">
    <children>
-      <Label fx:id="idText" layoutX="36.0" layoutY="26.0" text="SIUU" visible="false" />
+      <Label fx:id="idText" layoutX="36.0" layoutY="26.0" prefHeight="18.0" prefWidth="0.0" text="SIUU" visible="false" />
       <Label fx:id="nomeText" prefWidth="200.0" text="SIUU">
          <HBox.margin>
             <Insets left="25.0" right="25.0" />

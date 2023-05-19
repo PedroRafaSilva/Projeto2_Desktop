@@ -273,7 +273,7 @@
             </VBox>
             <VBox fx:id="pane2" alignment="TOP_CENTER" style="-fx-background-color: #FFFF;">
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="92.0" prefWidth="1444.0" text="Faturas">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="92.0" prefWidth="1444.0" text="Faturas Geradas">
                      <font>
                         <Font name="Calibri Bold" size="50.0" />
                      </font>
@@ -296,7 +296,7 @@
                               <Font name="Calibri" size="14.0" />
                            </font>
                         </Label>
-                        <Label text="Data de Prazo">
+                        <Label prefHeight="18.0" prefWidth="78.0" text="Validade">
                            <HBox.margin>
                               <Insets left="60.0" />
                            </HBox.margin>

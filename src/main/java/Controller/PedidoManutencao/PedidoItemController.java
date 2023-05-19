@@ -45,7 +45,7 @@ public class PedidoItemController {
         nomeText.setText(pedidoManutencao.getUtilizador().getNome());
         embarcacaoText.setText(pedidoManutencao.getEmbarcacao().getNome());
         oficinaText.setText(pedidoManutencao.getOficina().getNome());
-        valorText.setText(String.valueOf(pedidoManutencao.getValor()));
+        valorText.setText(pedidoManutencao.getValor() + "€");
         idText.setText(String.valueOf(pedidoManutencao.getIdpedido()));
         visibleButtons(pedidoManutencao);
     }

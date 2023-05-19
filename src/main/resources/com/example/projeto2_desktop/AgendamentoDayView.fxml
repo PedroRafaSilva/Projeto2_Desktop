@@ -30,7 +30,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="39.0" prefWidth="1200.0">
                <children>
-                  <Label fx:id="nomeText1" prefHeight="20.0" prefWidth="202.0" text="Titular">
+                  <Label fx:id="nomeText1" prefHeight="20.0" prefWidth="197.0" text="Titular">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -40,12 +40,12 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="HoraInicioText1" prefHeight="20.0" prefWidth="104.0" text="HoraInicio">
+                  <Label fx:id="HoraInicioText1" prefHeight="20.0" prefWidth="104.0" text="Hora de Inicio">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label fx:id="horaFimText1" prefHeight="20.0" prefWidth="124.0" text="HoraFim">
+                  <Label fx:id="horaFimText1" prefHeight="20.0" prefWidth="124.0" text="Hora de Término">
                      <font>
                         <Font size="14.0" />
                      </font>

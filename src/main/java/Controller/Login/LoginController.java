@@ -61,7 +61,7 @@ public class LoginController {
     }
 
     public void goToMenu(ActionEvent event) throws IOException {
-        Routes.handleGeneric(event, "Agendamento", "AgendamentoView.fxml");
+        Routes.handleGeneric(event, "Marinar - Gestão de Várias Marinas", "AgendamentoView.fxml");
     }
 
     public void generateFaturas(){

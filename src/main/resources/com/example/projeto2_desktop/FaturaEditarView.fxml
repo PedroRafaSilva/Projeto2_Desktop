@@ -109,38 +109,74 @@
                   <Font size="14.0" />
                </font>
             </Label>
-            <Label fx:id="valorEmbarcacoesText" prefHeight="40.0" text="Hora de Inicio:">
+            <HBox prefHeight="40.0" prefWidth="0.0">
+               <children>
+                  <Label fx:id="valorEmbarcacoesText" prefHeight="40.0" text="Hora de Inicio:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="valorEmbarcacoesText1" layoutX="10.0" layoutY="10.0" prefHeight="40.0" text="€">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="valorManutencoesText" prefHeight="40.0" text="Hora de Fim:">
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="0.0">
+               <children>
+                  <Label fx:id="valorManutencoesText" prefHeight="40.0" text="Hora de Fim:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="valorEmbarcacoesText11" prefHeight="40.0" text="€">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="valorAgendamentosText" prefHeight="40.0" text="Label">
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="0.0">
+               <children>
+                  <Label fx:id="valorAgendamentosText" prefHeight="40.0" text="Label">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="valorEmbarcacoesText12" prefHeight="40.0" text="€">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
                <VBox.margin>
                   <Insets bottom="20.0" />
                </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <Label fx:id="valorTotalText" prefHeight="40.0" text="Extras:">
+            </HBox>
+            <HBox prefHeight="40.0" prefWidth="0.0">
+               <children>
+                  <Label fx:id="valorTotalText" prefHeight="40.0" text="Extras:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="valorEmbarcacoesText13" prefHeight="40.0" text="€">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+               </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
+            </HBox>
          </children>
       </VBox>
    </children>

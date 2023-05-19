@@ -39,7 +39,7 @@ public class FaturaItemController {
         nomeText.setText(fatura.getUtilizador().getNome());
         datacriacao.setText(fatura.getDatacriacao().toString());
         dataPrazo.setText(fatura.getPrazo().toString());
-        valorText.setText(String.valueOf(fatura.getValortotal()));
+        valorText.setText(fatura.getValortotal() + "€");
         estadoText.setText(estado);
         idText.setText(String.valueOf(fatura.getIdfatura()));
     }

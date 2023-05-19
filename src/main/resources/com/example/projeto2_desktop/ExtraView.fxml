@@ -9,14 +9,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="465.0" prefWidth="600.0" style="-fx-background-color: #FFF;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Extra.ExtraController">
+<AnchorPane prefHeight="465.0" prefWidth="600.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Extra.ExtraController">
    <children>
       <ScrollPane fx:id="scroll" layoutX="55.0" layoutY="87.0" prefHeight="291.0" prefWidth="500.0">
          <content>
             <VBox fx:id="vBox" alignment="TOP_CENTER" prefHeight="290.0" prefWidth="500.0" />
          </content>
       </ScrollPane>
-      <Label layoutX="212.0" layoutY="15.0" text="Adicionar Extras">
+      <Label layoutX="212.0" layoutY="15.0" text="Adicionar Extras" textFill="#0d0d0d">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -29,13 +29,13 @@
          <children>
             <Label text="Nome">
                <HBox.margin>
-                  <Insets left="70.0" right="30.0" />
+                  <Insets left="75.0" right="30.0" />
                </HBox.margin>
                <font>
                   <Font name="Calibri" size="14.0" />
                </font>
             </Label>
-            <Label text="Preço">
+            <Label text="Preço(€)">
                <HBox.margin>
                   <Insets left="30.0" right="30.0" />
                </HBox.margin>
@@ -43,13 +43,13 @@
                   <Font name="Calibri" size="14.0" />
                </font>
             </Label>
-            <Label text="Preço Total">
+            <Label text="Preço Total(€)">
                <font>
                   <Font name="Calibri" size="14.0" />
                </font></Label>
-            <Label text="Qtd">
+            <Label text="Qtd(unidade)">
                <HBox.margin>
-                  <Insets left="80.0" />
+                  <Insets left="35.0" />
                </HBox.margin>
                <font>
                   <Font name="Calibri" size="14.0" />
