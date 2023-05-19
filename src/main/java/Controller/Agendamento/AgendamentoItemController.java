@@ -67,6 +67,7 @@ public class AgendamentoItemController {
         ListaEstadoAgendamento listaEstadoAgendamento = new ListaEstadoAgendamento();
         listaEstadoAgendamento.setIdagendamento(agendamento.getIdagendamento());
         listaEstadoAgendamento.setData(LocalDateTime.now());
+        System.out.println(agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now()));
         if (!estado.equals("Cancelado") && !estado.equals("Concluída") &&
                 agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now()) &&
                 agendamento.getHoraFim().toLocalTime().isAfter(LocalTime.now()) &&
@@ -75,8 +76,8 @@ public class AgendamentoItemController {
             listaEstadoAgendamentoService.updateListaEstadoAgendamento(listaEstadoAgendamento);
         }
         if (!estado.equals("Cancelado") && !estado.equals("Concluída") &&
-                agendamento.getHorainicio().toLocalTime().isBefore(LocalTime.now()) &&
-                agendamento.getData().toLocalDate().isEqual(LocalDate.now())){
+                agendamento.getHoraFim().toLocalTime().isBefore(LocalTime.now()) &&
+                agendamento.getData().toLocalDate().isBefore(LocalDate.now())){
             listaEstadoAgendamento.setIdestado(4);
             listaEstadoAgendamentoService.updateListaEstadoAgendamento(listaEstadoAgendamento);
         }
