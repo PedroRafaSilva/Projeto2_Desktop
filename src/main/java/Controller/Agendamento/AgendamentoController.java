@@ -50,29 +50,42 @@ public class AgendamentoController implements Initializable {
         drawCalendar();
     }
 
-
+    //Esta função cria o calendário
     public void drawCalendar(){
         AgendamentoService agendamentoService = new AgendamentoService();
-        year.setText(String.valueOf(dateFocus.getYear()));
-        month.setText(String.valueOf(dateFocus.getMonth()));
+        year.setText(String.valueOf(dateFocus.getYear())); //Vai buscar o ano atual
+        month.setText(String.valueOf(dateFocus.getMonth())); //Vai buscar o mês atual
 
+        //Definição das dimensões e espaçamento do calendário
         double calendarWidth = calendar.getPrefWidth();
         double calendarHeight = calendar.getPrefHeight();
         double strokeWidth = 1;
         double spacingH = calendar.getHgap();
         double spacingV = calendar.getVgap();
 
+        //Vai buscar o tamanho do mês
         int monthMaxDate = dateFocus.getMonth().maxLength();
-        //Check for leap year
+        //Verifica se o ano é bissexto
         if(dateFocus.getYear() % 4 != 0 && monthMaxDate == 29){
             monthMaxDate = 28;
         }
 
+
+        /*Esta linha permite colocar o nº do dia nos dias de semana corretos
+        A variavél dateOffset representa o nº do deslocamento do inicio do mes
+        Por exemplo, se um mês começa numa terça-feira o valor da variavel vai ser 2
+        (diferença de dias entre domingo e terça-feira)
+         */
         int dateOffset = ZonedDateTime.of(dateFocus.getYear(), dateFocus.getMonthValue(), 1,0,0,0,0,dateFocus.getZone()).getDayOfWeek().getValue();
+
+
+
+        //Utilização de fors para desenharos retângulos do calendário
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 7; j++) {
                 StackPane stackPane = new StackPane();
 
+                //Criação dos retângulos
                 Rectangle rectangle = new Rectangle();
                 rectangle.setFill(Color.WHITE);
                 rectangle.setStroke(Color.LIGHTBLUE);
@@ -85,15 +98,20 @@ public class AgendamentoController implements Initializable {
                 rectangle.setHeight(rectangleHeight);
                 stackPane.getChildren().add(rectangle);
 
+                // Esta variavèl vai de 1 até 42
                 int calculatedDate = (j+1)+(7*i);
                 if(calculatedDate > dateOffset){
                     int currentDate = calculatedDate - dateOffset;
+
+                    //Se curentDate for inferior ou igual ao tamanho do mês
                     if(currentDate <= monthMaxDate){
+                        //Coloca o nº do dia na parte superior de cada retângulo
                         Text date = new Text(String.valueOf(currentDate));
                         double textTranslationY = - (rectangleHeight / 2) * 0.75;
                         date.setTranslateY(textTranslationY);
                         stackPane.getChildren().add(date);
 
+                        //Esta parte permite clicar nos retângulos para ver os agendamentos daquele dia
                         rectangle.setCursor(Cursor.HAND);
                         rectangle.setOnMouseClicked(event -> {
                             try {
@@ -102,10 +120,14 @@ public class AgendamentoController implements Initializable {
                                 throw new RuntimeException(e);
                             }
                         });
+
+
+                        //Se aquele dia tiver agendamentos vai buscá-los
                         if (!agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()).isEmpty()) {
                             createCalendarActivity(agendamentoService.getAgendamentosByDate(currentDate, dateFocus.getMonthValue(), dateFocus.getYear()), rectangleHeight, stackPane);
                         }
                     }
+                    //Se o retângulo dor do dia de hoje ele fica marcado a azul
                     if(today.getYear() == dateFocus.getYear() && today.getMonth() == dateFocus.getMonth() && today.getDayOfMonth() == currentDate){
                         rectangle.setStroke(Color.BLUE);
                     }
